@@ -59,12 +59,15 @@ Line = reader.ReadLine();
 string[] vec = Line.Split(' ');
 int[] vector = new int[vec.Length];
 
-//Читаем вектор
+//Читаем вектор.
 for (int num=0;num<vec.Length;num++)
 {
     int number = int.Parse(vec[num]);
     vector[num] = number;
 }
+
+
+//Вторым читаем размерность.
 
 int n = int.Parse(Line = reader.ReadLine());
 int[][] matr = new int[n][];
@@ -73,7 +76,7 @@ for (int i = 0; i < matr.Length; i++)
 
 
 
-//Читаем матрицу.
+//Читаем матрицу в третью очередь.
 for (int i = 0; i < n;i++) {
     ReaderFromFile(reader, matr[i]);
 }
