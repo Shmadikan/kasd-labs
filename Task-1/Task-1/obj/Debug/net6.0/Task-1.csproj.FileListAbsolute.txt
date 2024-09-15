@@ -1,0 +1,14 @@
+D:\CIsHere\Task-1\Task-1\bin\Debug\net6.0\Task-1.exe
+D:\CIsHere\Task-1\Task-1\bin\Debug\net6.0\Task-1.deps.json
+D:\CIsHere\Task-1\Task-1\bin\Debug\net6.0\Task-1.runtimeconfig.json
+D:\CIsHere\Task-1\Task-1\bin\Debug\net6.0\Task-1.dll
+D:\CIsHere\Task-1\Task-1\bin\Debug\net6.0\Task-1.pdb
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.GeneratedMSBuildEditorConfig.editorconfig
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.AssemblyInfoInputs.cache
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.AssemblyInfo.cs
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.csproj.CoreCompileInputs.cache
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.dll
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\refint\Task-1.dll
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.pdb
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\Task-1.genruntimeconfig.cache
+D:\CIsHere\Task-1\Task-1\obj\Debug\net6.0\ref\Task-1.dll
