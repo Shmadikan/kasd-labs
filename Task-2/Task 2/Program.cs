@@ -7,31 +7,31 @@ class Programm {
 
 
 
-        public void SumOfComplex(ref ComplexNumber num, double real, double imag)
+        public void SumOfComplex(ref ComplexNumber num, ComplexNumber secNum)
         {
-            num.Real += real;
-            num.Imag += imag;
+            num.Real += secNum.Real;
+            num.Imag += secNum.Imag;
         }
 
 
-        public void SubOfComplex(ref ComplexNumber num, double real, double imag)
+        public void SubOfComplex(ref ComplexNumber num, ComplexNumber secNum)
         {
-            num.Real -= real;
-            num.Imag -= imag;
+            num.Real -= secNum.Real;
+            num.Imag -= secNum.Imag;
         }
 
 
-        public void MulOfComplex(ref ComplexNumber num, double real, double imag)
+        public void MulOfComplex(ref ComplexNumber num, ComplexNumber secNum)
         {
-            num.Real = (num.Real * real) - (num.Imag * imag);
-            num.Imag = (num.Real * imag) + num.Imag + real;
+            num.Real = (num.Real * secNum.Real) - (num.Imag * secNum.Real);
+            num.Imag = (num.Real * secNum.Imag) + num.Imag + secNum.Real;
         }
 
 
-        public void DivOfComplex(ref ComplexNumber num, double real, double imag)
+        public void DivOfComplex(ref ComplexNumber num, ComplexNumber secNum)
         {
-            num.Real /= real;
-            num.Imag /= imag;
+            num.Real /= secNum.Real;
+            num.Imag /= secNum.Imag;
         }
 
 
@@ -95,7 +95,7 @@ class Programm {
                     {
                         ComplexNumber secondNumber = new ComplexNumber();
                         secondNumber = secondNumber.ComplexCreate(secondNumber);
-                        number.SumOfComplex(ref number, secondNumber.Real, secondNumber.Imag);
+                        number.SumOfComplex(ref number, secondNumber);
                         Console.Write("Результат Суммы: "); number.ComplexPrint(number);
                         break;
                     }
@@ -103,7 +103,7 @@ class Programm {
                     {
                         ComplexNumber secondNumber = new ComplexNumber();
                         secondNumber = secondNumber.ComplexCreate(secondNumber);
-                        number.SubOfComplex(ref number, secondNumber.Real, secondNumber.Imag);
+                        number.SubOfComplex(ref number, secondNumber);
                         Console.Write("Результат Вычитания: "); number.ComplexPrint(number);
                         break;
                     }
@@ -111,7 +111,7 @@ class Programm {
                     {
                         ComplexNumber secondNumber = new ComplexNumber();
                         secondNumber = secondNumber.ComplexCreate(secondNumber);
-                        number.MulOfComplex(ref number, secondNumber.Real, secondNumber.Imag);
+                        number.MulOfComplex(ref number, secondNumber);
                         Console.Write("Результат умножения: ");number.ComplexPrint(number);
                         break;
                     }
@@ -119,7 +119,7 @@ class Programm {
                     {
                         ComplexNumber secondNumber = new ComplexNumber();
                         secondNumber = secondNumber.ComplexCreate(secondNumber);
-                        number.DivOfComplex(ref number, secondNumber.Real, secondNumber.Imag);
+                        number.DivOfComplex(ref number, secondNumber);
                         Console.Write("Результат Деления: "); number.ComplexPrint(number);
                         break;
                     }
