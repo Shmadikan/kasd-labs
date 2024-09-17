@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Design;
+﻿using System;
+using System.ComponentModel.Design;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -204,7 +205,7 @@ namespace Task_3
                 }
                 return;
             }
-            int parts = 0;
+            int parts;
             
             int i = low;
             int k = 0;
@@ -245,11 +246,161 @@ namespace Task_3
         }
 
 
-        public void RadixSort(int[] mas) {
-            return;
-        
+        public int[] mergeSort(int[] array) {
+            int[] left;
+            int[] right;
+            int[] result = new int[array.Length];
+            if (array.Length <= 1)
+                return array;
+             
+            int midPoint = array.Length / 2;
+            
+            left = new int[midPoint];
+
+            
+            if (array.Length % 2 == 0)
+                right = new int[midPoint];
+            
+            else
+                right = new int[midPoint + 1];
+            
+            for (int i = 0; i < midPoint; i++)
+                left[i] = array[i];
+               
+            int x = 0;
+             
+            for (int i = midPoint; i < array.Length; i++)
+            {
+                right[x] = array[i];
+                x++;
+            }
+            
+            left = mergeSort(left);
+            
+            right = mergeSort(right);
+            
+            result = merge(left, right);
+            return result;
+
+        }
+        public int[] merge(int[] left, int[] right) {
+            /// Вспомогательный метод для сортировки слиянием. Также объединяет их.
+            int resultLength = right.Length + left.Length;
+            int[] result = new int[resultLength];
+            
+            int indexLeft = 0, indexRight = 0, indexResult = 0;
+            
+            while (indexLeft < left.Length || indexRight < right.Length)
+            {
+                
+                if (indexLeft < left.Length && indexRight < right.Length)
+                {
+                     
+                    if (left[indexLeft] <= right[indexRight])
+                    {
+                        result[indexResult] = left[indexLeft];
+                        indexLeft++;
+                        indexResult++;
+                    }
+                    
+                    else
+                    {
+                        result[indexResult] = right[indexRight];
+                        indexRight++;
+                        indexResult++;
+                    }
+                }
+                
+                else if (indexLeft < left.Length)
+                {
+                    result[indexResult] = left[indexLeft];
+                    indexLeft++;
+                    indexResult++;
+                }
+                else if (indexRight < right.Length)
+                {
+                    result[indexResult] = right[indexRight];
+                    indexRight++;
+                    indexResult++;
+                }
+            }
+            return result;
+
+
         }
 
+
+        public void RadixSort(int[] mas)
+        {
+            //Вспомогательный массив.
+            int[] t = new int[mas.Length];
+
+            // Количество рассматриваемых битов. 
+            int r = 4;
+
+            // Всего битов в int.
+            int b = 32;
+
+            // count массив, который мы используем для сортировки битов по индексу.
+            // Получаем 4 бита и увеличиваем значение по индексу, соответствующему 4 битам.
+
+
+            // Префиксную сумму используем для того, чтобы поставить число на нужное место в массив.
+            int[] count = new int[1 << r];
+            int[] pref = new int[1 << r];
+
+            // Количество итераций. 
+            int groups = 8;
+
+            // Маска для отделения 4 битов. 
+            int mask = (1 << r) - 1;
+
+            for (int c = 0, shift = 0; c < groups; c++, shift += r)
+            {
+                // Сброс значений.
+                for (int j = 0; j < count.Length; j++)
+                    count[j] = 0;
+
+
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    int test = mas[i];
+                    var first = mas[i] >> shift;
+                    var num = first & mask;
+                    count[num]++;
+                }
+
+                // Составляем префиксную сумму. 
+                pref[0] = 0;
+                for (int i = 1; i < count.Length; i++)
+                    pref[i] = pref[i - 1] + count[i - 1];
+
+
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    var first = mas[i] >> shift;
+                    var num = first & mask;
+                    t[pref[num]++] = mas[i];
+                }
+
+                t.CopyTo(mas, 0);
+                ///Пояснения насчёт префиксной суммы:
+                ///Префиксная сумма это вспомогательный массив.
+                ///Каждый индекс в этом массиве соответствует sum(0, b) массива, где b
+                ///Индекс исходного массива.
+                ///Пример:
+                ///[0, 1, 0, 1, 0] - Исходный массив
+                ///[0, 0, 1, 1, 2] - Его префиксная сумма
+                ///Так, например, sum(0,4), на 4 позиции префиксного массива будет сумма от 0 до b (2).
+                ///Фактически сумма на этой позиции означает, что до этого мы встретили 2 числа.
+                ///Если предположить, что они уже стоят по своим индексам, мы можем поставить число
+                ///На эту позицию. В случае с повторяющимися числами, достаточно после постановки числа
+                ///на позицию, увеличить индекс. В таком случае мы поставим одинаковое число на следующую позицию.
+            }
+        }
+
+
+        
         class Tree { 
             /// Вспомогательный класс для построения дерева.
             
@@ -326,17 +477,68 @@ namespace Task_3
             }
             
         }
-        
-    
+        public void BitonicSort(ref int[] mas)
+        {
+            int[] AbstractFunc(int[] mas) {
+                int n = mas.Length;
+                int k, j, l, i, temp;
+                int cond = n & (n - 1);
+                if (cond != 0) {
+                    int pow = 1;
+                    int sn = n;
+                    while (sn != 0)
+                    {
+                        sn /= 2;
+                        pow *= 2;
+                    }
+                    n = pow;
+                }
+                int[] nmas = new int[n];
+
+                for (int it = 0; it < nmas.Length; it++) {
+                    if (it < mas.Length)
+                    {
+                        nmas[it] = mas[it];
+
+                    }
+                    else nmas[it] = -1;
+                }
+                for (k = 2; k <= n; k *= 2)
+                {
+                    for (j = k / 2; j > 0; j /= 2)
+                    {
+                        for (i = 0; i < n; i++)
+                        {
+                            l = i ^ j;
+                            if (l > i)
+                            {
+                                if (((i & k) == 0) && (nmas[i] > nmas[l]) || (((i & k) != 0) && (nmas[i] < nmas[l])))
+                                {
+                                    temp = nmas[i];
+                                    nmas[i] = nmas[l];
+                                    nmas[l] = temp;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                return nmas;
+            }
+            mas = AbstractFunc(mas);
+        }
+
+
     }
     internal class Program
     {
         static void Main(string[] args)
         {
             AllSortIsHere sortObject = new AllSortIsHere();
-            int[] mas = {20, 11, 12, 7, 19, 2, 1};
-            sortObject.TreeSort(mas);
+            int[] mas = {20, 11, 12, 7, 5, 6, 7 , 8,10,90};
+            sortObject.BitonicSort(ref mas);
             Console.WriteLine(string.Join(" ",mas));
+            
         }
     }
 }
@@ -355,4 +557,5 @@ namespace Task_3
                     index = parent;
                     parent = (index - 1) / 2;
                 }
-            }*/
+            }
+*/
