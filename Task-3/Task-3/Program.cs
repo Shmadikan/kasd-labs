@@ -7,12 +7,13 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 namespace Task_3
 {
-    class AllSortIsHere {
+    internal class AllSortIsHere {
         /// <summary>
         /// Класс, содержащий методы сортировок, а также инкапсулирующий в себе, некоторые структуры и вспомогательные методы.
         /// </summary>
         /// <param name="mas">Необходимо передавать массив целых чисел.</param>
         public void BubbleSort(int[] mas) {
+            ///Пузырьковая сортировка
             for (int i = 0; i < mas.Length; i++)
                 for (int j = mas.Length - 1; j > i; j--) 
                     if (mas[j] < mas[j - 1])
@@ -192,24 +193,15 @@ namespace Task_3
 
 
         public void QuickSort(int[] mas,int low, int high) {
-            if (high - low <= 2)
+            if (high - low < 2)
             {
-                if (high - low == 2)
-                {
-                    if (mas[high - 1] < mas[low])
-                    {
-                        int tmp = mas[low];
-                        mas[low] = mas[high - 1];
-                        mas[high - 1] = tmp;
-                    }
-                }
                 return;
             }
-            int parts;
-            
+            int parts = 0;
+
             int i = low;
             int k = 0;
-            int index = (high - low - 1) / 2;
+            int index = low;
             int pivot = mas[index];
             for (int j = low; j < high; j++) {
                     if (mas[j] < pivot)
@@ -529,17 +521,6 @@ namespace Task_3
         }
 
 
-    }
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            AllSortIsHere sortObject = new AllSortIsHere();
-            int[] mas = {20, 11, 12, 7, 5, 6, 7 , 8,10,90};
-            sortObject.BitonicSort(ref mas);
-            Console.WriteLine(string.Join(" ",mas));
-            
-        }
     }
 }
 
