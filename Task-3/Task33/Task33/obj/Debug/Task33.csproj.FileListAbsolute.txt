@@ -1,0 +1,6 @@
+D:\CIsHere\Task-3\Task33\Task33\bin\Debug\Task33.dll
+D:\CIsHere\Task-3\Task33\Task33\bin\Debug\Task33.pdb
+D:\CIsHere\Task-3\Task33\Task33\obj\Debug\Task33.csproj.AssemblyReference.cache
+D:\CIsHere\Task-3\Task33\Task33\obj\Debug\Task33.csproj.CoreCompileInputs.cache
+D:\CIsHere\Task-3\Task33\Task33\obj\Debug\Task33.dll
+D:\CIsHere\Task-3\Task33\Task33\obj\Debug\Task33.pdb

@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 namespace Task_3
 {
-    internal class AllSortIsHere {
+    public sealed class AllSortIsHere {
         /// <summary>
         /// Класс, содержащий методы сортировок, а также инкапсулирующий в себе, некоторые структуры и вспомогательные методы.
         /// </summary>

@@ -5,10 +5,10 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime;
 namespace Task_3
 {
-    class Arrays
+    public sealed class Arrays
     {
         AllSortIsHere SortObject = new AllSortIsHere();
         public int[] ar1;
@@ -36,19 +36,35 @@ namespace Task_3
 
 
 
-        private void RandShuffle(int[] mas) { 
+        public void RandShuffle(int[] mas) { 
             Random rand = new Random();
             int module = 1000;
             for (int i = 0; i < mas.Length; i++)
             {
                 mas[i] = rand.Next(0, module);
                 
-               
             }
-            
-            
         }
 
+
+        public void ReSize(int size) {
+            this.ar1 = new int[size];
+            for (int i = 0; i < ar2.Length; i++)
+            {
+                this.ar2[i] = new int[size];
+
+            }
+
+            for (int i = 0; i < ar3.Length; i++)
+                this.ar3[i] = new int[size];
+
+            for (int i = 0; i < ar4.Length; i++)
+                ar4[i] = new int[size];
+        }
+        public int[] ReSize(int size, int[] mas)
+        {
+            return mas = new int[size];
+        }
 
         public void RandUnArrayShuffle() {
             /// Метод для второй группы массивов.
