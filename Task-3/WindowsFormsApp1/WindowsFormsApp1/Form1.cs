@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         List<int[]> ListToTxt = new List<int[]>();
 
-
+        
 
         int[] ArrayOfFunc = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
         Dictionary<int, string> sortName = new Dictionary<int, string> {
@@ -70,6 +70,9 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            GraphPane pane = zedGraphControl1.GraphPane;
+            pane.XAxis.Title.Text = "Размер массива";
+            pane.YAxis.Title.Text = "Время выполнения мс.";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -126,17 +129,17 @@ namespace WindowsFormsApp1
 
                 AllArray.Clear();
                 int size = 10;
-                int[] mas = new int[size];
+                int[] array = new int[size];
                 int power = FlagChecker(flag);
 
                 while (size < Math.Pow(10, power))
                 {
 
-                    AllArray.Add(mas);
+                    AllArray.Add(array);
                     size *= 10;
-                    mas = new int[size];
+                    array = new int[size];
                 }
-                AllArray.Add(mas);
+                AllArray.Add(array);
             }
             else if (answer == "Подмассивы")
             {
@@ -144,17 +147,17 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < MasGroup.ar2.Length; i++)
                 {
                     int size = 10;
-                    int[] mas = new int[size];
+                    int[] array = new int[size];
                     int power = FlagChecker(flag);
                     while (size < Math.Pow(10, power))
                     {
-                        AllArray.Add(mas);
+                        AllArray.Add(array);
                         size *= 10;
                         MasGroup.ar2[i] = new int[size];
-                        mas = MasGroup.ar2[i];
+                        array = MasGroup.ar2[i];
                     }
 
-                    AllArray.Add(mas);
+                    AllArray.Add(array);
                 }
             }
 
@@ -164,16 +167,16 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < MasGroup.ar3.Length; i++)
                 {
                     int size = 10;
-                    int[] mas = MasGroup.ar3[i];
+                    int[] array = MasGroup.ar3[i];
                     int power = FlagChecker(flag);
                     while (size < Math.Pow(10, power))
                     {
-                        AllArray.Add(mas);
+                        AllArray.Add(array);
                         size *= 10;
                         MasGroup.ar3[i] = new int[size];
-                        mas = MasGroup.ar3[i];
+                        array = MasGroup.ar3[i];
                     }
-                    AllArray.Add(mas);
+                    AllArray.Add(array);
                 }
             }
             else if (answer == "Повторение")
@@ -182,16 +185,16 @@ namespace WindowsFormsApp1
                 for (int i = 0; i < MasGroup.ar4.Length; i++)
                 {
                     int size = 10;
-                    int[] mas = MasGroup.ar4[i];
+                    int[] array = MasGroup.ar4[i];
                     int power = FlagChecker(flag);
                     while (size < Math.Pow(10, power))
                     {
-                        AllArray.Add(mas);
+                        AllArray.Add(array);
                         size *= 10;
                         MasGroup.ar4[i] = new int[size];
-                        mas = MasGroup.ar4[i];
+                        array = MasGroup.ar4[i];
                     }
-                    AllArray.Add(mas);
+                    AllArray.Add(array);
                 }
             }
         }
@@ -212,12 +215,21 @@ namespace WindowsFormsApp1
             {
                 GraphPane pane = zedGraphControl1.GraphPane;
                 pane.CurveList.Clear();
-
+                double power = FlagChecker(flag);
                 double x = 0;
                 int procent = 0;
-                if (flag == 3) procent = 18;
-                else if (flag == 2) procent = 30;
-                else if (flag == 1) procent = 20;
+                if (flag == 3) { procent = 18;
+                    pane.XAxis.Scale.Min = 0;
+                    pane.XAxis.Scale.Max = Math.Pow(10, power); 
+                }
+                else if (flag == 2) { procent = 30;
+                    pane.XAxis.Scale.Min = 0;
+                    pane.XAxis.Scale.Max = Math.Pow(10, power);
+                }// pane.XAxis.Scale.Max = 10000; }
+                else if (flag == 1) { procent = 20;
+                    pane.XAxis.Scale.Min = 0;
+                    pane.XAxis.Scale.Max = Math.Pow(10, power);
+                }// pane.XAxis.Scale.Max = 1000000; }
 
                 for (int st = start; st < end; st++)
                 {
@@ -316,17 +328,17 @@ namespace WindowsFormsApp1
 
             int power;
             if (flag == 1) power = 4;
-            else if (flag == 2) power = 4;
-            else power = 5;
+            else if (flag == 2) power = 5;
+            else power = 6;
             return power;
 
         }
 
-        private double f(int[] mas, int st)
+        private double f(int[] array, int st)
         {
             Stopwatch clock = Stopwatch.StartNew();
-            sortObj.SortChose(st, mas);
-            ListToTxt.Add(mas);
+            sortObj.SortChose(st, array);
+            ListToTxt.Add(array);
             clock.Stop();
             return clock.ElapsedMilliseconds;
         }
@@ -348,9 +360,16 @@ namespace WindowsFormsApp1
 
             }
         }
+
+        private void zedGraphControl1_Load(object sender, EventArgs e)
+        {
+            
+        }
+        
+
         private void progressBar1_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

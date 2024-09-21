@@ -36,13 +36,13 @@ namespace Task33
 
 
 
-        public void RandShuffle(int[] mas)
+        public void RandShuffle(int[] array)
         {
             Random rand = new Random();
             int module = 1000;
-            for (int i = 0; i < mas.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                mas[i] = rand.Next(0, module);
+                array[i] = rand.Next(0, module);
 
 
             }
@@ -51,13 +51,13 @@ namespace Task33
         }
 
 
-        public void RandShuffle(int[] mas, ref ConcurrentQueue<int> queue,int procent)
+        public void RandShuffle(int[] array, ref ConcurrentQueue<int> queue,int procent)
         {
             Random rand = new Random();
             int module = 1000;
-            for (int i = 0; i < mas.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                mas[i] = rand.Next(0, module);
+                array[i] = rand.Next(0, module);
 
             }
             queue.Enqueue(procent);
@@ -76,16 +76,16 @@ namespace Task33
             {
                 module = 10;
                 index = 0;
-                int[] mas = array[i];
+                int[] currentArray = array[i];
                 
-                while (mas.Length - index >= module)
+                while (currentArray.Length - index >= module)
                 {
                     int[] sub = new int[random.Next(0, module)];
-                    Array.Copy(mas, index, sub, 0, sub.Length);
+                    Array.Copy(currentArray, index, sub, 0, sub.Length);
                     
                     Array.Sort(sub);
                     
-                    Array.Copy(sub, 0, mas, index, sub.Length);
+                    Array.Copy(sub, 0, currentArray, index, sub.Length);
                     index += sub.Length;
                     module *= 2;
                 }
@@ -94,20 +94,20 @@ namespace Task33
         }
 
 
-        public void ItWasSorted(int[] mas)
+        public void ItWasSorted(int[] array)
         {
             Random rand = new Random();
             int numOfRand = rand.Next(1, 10);
             
                 
-                Array.Sort(mas);
+                Array.Sort(array);
             for (int j = 0; j < numOfRand; j++)
             {
-                int it = rand.Next(0, mas.Length - 1);
-                int id = rand.Next(0, mas.Length - 1);
-                int tmp = mas[it];
-                mas[it] = mas[id];
-                mas[id] = tmp;
+                int it = rand.Next(0, array.Length - 1);
+                int id = rand.Next(0, array.Length - 1);
+                int tmp = array[it];
+                array[it] = array[id];
+                array[id] = tmp;
             }
         }
 
@@ -134,27 +134,27 @@ namespace Task33
             {
                 double s = ar4[i].Length * proc[index];
                 int reqCount = (int)s;
-                int[] mas = ar4[i];
-                RandShuffle(mas);
-                int randNumber = mas[rand.Next(0, ar4.Length - 1)];
-                int counters = Counter(mas, randNumber);
+                int[] array = ar4[i];
+                RandShuffle(array);
+                int randNumber = array[rand.Next(0, ar4.Length - 1)];
+                int counters = Counter(array, randNumber);
 
                 if (counters < reqCount)
                 {
                     for (int r = 0; r < reqCount; r++)
                     {
-                        int rands = rand.Next(0, mas.Length - 1);
-                        mas[rands] = randNumber;
+                        int rands = rand.Next(0, array.Length - 1);
+                        array[rands] = randNumber;
                     }
 
 
                 }
                 index += 1;
             }
-            int Counter(int[] mas, int randNumber)
+            int Counter(int[] array, int randNumber)
             {
                 int counts = 0;
-                foreach (int n in mas)
+                foreach (int n in array)
                 {
                     if (n == randNumber) counts += 1;
                 }
@@ -162,8 +162,8 @@ namespace Task33
             }
         }
         public int[] ReSize(int size) {
-            int[] mas = new int[size];
-            return mas;
+            int[] array = new int[size];
+            return array;
         }
 
         

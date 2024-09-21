@@ -11,44 +11,44 @@ namespace Task33
         /// <summary>
         /// Класс, содержащий методы сортировок, а также инкапсулирующий в себе, некоторые структуры и вспомогательные методы.
         /// </summary>
-        /// <param name="mas">Необходимо передавать массив целых чисел.</param>
-        public void BubbleSort(int[] mas)
+        /// <param name="array">Необходимо передавать массив целых чисел.</param>
+        public void BubbleSort(int[] array)
         {
             ///Пузырьковая сортировка
-            for (int i = 0; i < mas.Length; i++)
-                for (int j = mas.Length - 1; j > i; j--)
-                    if (mas[j] < mas[j - 1])
+            for (int i = 0; i < array.Length; i++)
+                for (int j = array.Length - 1; j > i; j--)
+                    if (array[j] < array[j - 1])
                     {
-                        int tmp = mas[j];
-                        mas[j] = mas[j - 1];
-                        mas[j - 1] = tmp;
+                        int tmp = array[j];
+                        array[j] = array[j - 1];
+                        array[j - 1] = tmp;
                     }
         }
 
 
-        public void ShakeSort(int[] mas)
+        public void ShakeSort(int[] array)
         {
             bool f = true;
-            int right = mas.Length - 1;
+            int right = array.Length - 1;
             int left = 0;
             while (left < right && f != false)
             {
                 f = false;
                 for (int i = right; i > left; i--)
-                    if (mas[i] < mas[i - 1])
+                    if (array[i] < array[i - 1])
                     {
-                        int tmp = mas[i];
-                        mas[i] = mas[i - 1];
-                        mas[i - 1] = tmp;
+                        int tmp = array[i];
+                        array[i] = array[i - 1];
+                        array[i - 1] = tmp;
                         f = true;
                     }
                 left += 1;
                 for (int j = left; j < right; j++)
-                    if (mas[j] > mas[j + 1])
+                    if (array[j] > array[j + 1])
                     {
-                        int tmp = mas[j];
-                        mas[j] = mas[j + 1];
-                        mas[j + 1] = tmp;
+                        int tmp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = tmp;
                         f = true;
                     }
                 right -= 1;
@@ -56,19 +56,19 @@ namespace Task33
         }
 
 
-        public void CombSort(int[] mas)
+        public void CombSort(int[] array)
         {
             double subFactor = 1.25;
-            int currentDistanse = mas.Length - 1;
+            int currentDistanse = array.Length - 1;
             while (currentDistanse > 0)
             {
-                for (int i = 0; i + currentDistanse < mas.Length; i += 1)
+                for (int i = 0; i + currentDistanse < array.Length; i += 1)
                 {
-                    if (mas[i] > mas[i + currentDistanse])
+                    if (array[i] > array[i + currentDistanse])
                     {
-                        int tmp = mas[i];
-                        mas[i] = mas[i + currentDistanse];
-                        mas[i + currentDistanse] = tmp;
+                        int tmp = array[i];
+                        array[i] = array[i + currentDistanse];
+                        array[i + currentDistanse] = tmp;
                     }
                 }
                 currentDistanse = (int)(currentDistanse / subFactor);
@@ -76,32 +76,32 @@ namespace Task33
         }
 
 
-        public void InsertionSort(int[] mas)
+        public void InsertionSort(int[] array)
         {
             int i, j, temp;
-            for (i = 1; i < mas.Length; i++)
+            for (i = 1; i < array.Length; i++)
             {
-                temp = mas[i];
+                temp = array[i];
                 for (j = i - 1; j >= 0; j--)
                 {
-                    if (mas[j] < temp) break;
-                    mas[j + 1] = mas[j];
-                    mas[j] = temp;
+                    if (array[j] < temp) break;
+                    array[j + 1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
 
 
-        public void ShellSort(int[] mas)
+        public void ShellSort(int[] array)
         {
-            int step = mas.Length / 2;
+            int step = array.Length / 2;
             while (step > 0)
             {
-                for (int i = step; i < mas.Length; i++)
+                for (int i = step; i < array.Length; i++)
                 {
                     int j = i;
                     int stepBack = j - step;
-                    while (stepBack >= 0 && mas[stepBack] > mas[j])
+                    while (stepBack >= 0 && array[stepBack] > array[j])
                     {
                         swap(j, stepBack);
                         j = stepBack;
@@ -112,14 +112,14 @@ namespace Task33
             }
             void swap(int j, int stepBack)
             {
-                int tmp = mas[stepBack];
-                mas[stepBack] = mas[j];
-                mas[j] = tmp;
+                int tmp = array[stepBack];
+                array[stepBack] = array[j];
+                array[j] = tmp;
             }
         }
 
 
-        public void TreeSort(int[] mas)
+        public void TreeSort(int[] array)
         {
             void CreateTree(Tree rootk, int val)
             {
@@ -145,14 +145,14 @@ namespace Task33
                 }
             }
             Tree root = new Tree();
-            root.val = mas[0];
+            root.val = array[0];
             // Создаём дерево.
-            for (int index = 1; index < mas.Length / 5; index++)
-                CreateTree(root, mas[index]);
+            for (int index = 1; index < array.Length / 5; index++)
+                CreateTree(root, array[index]);
 
 
             int i = 0;
-            TreeWalking(root, mas);
+            TreeWalking(root, array);
             void TreeWalking(Tree roots,int[] mass)
             {
                 if (roots == null) return;
@@ -166,16 +166,16 @@ namespace Task33
         }
 
 
-        public void GnomeSort(int[] mas)
+        public void GnomeSort(int[] array)
         {
             int i = 0; int j = 1;
-            while (j < mas.Length)
+            while (j < array.Length)
             {
-                if (mas[i] > mas[i + 1])
+                if (array[i] > array[i + 1])
                 {
-                    int tmp = mas[i];
-                    mas[i] = mas[i + 1];
-                    mas[i + 1] = tmp;
+                    int tmp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = tmp;
                     if (i > 0)
                         i -= 1;
                 }
@@ -187,31 +187,31 @@ namespace Task33
         }
 
 
-        public void SelectionSort(int[] mas)
+        public void SelectionSort(int[] array)
         {
             int imin, min;
-            for (int i = 0; i < mas.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                imin = i; min = mas[i];
-                for (int j = i + 1; j < mas.Length; j++)
+                imin = i; min = array[i];
+                for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (mas[j] < min)
+                    if (array[j] < min)
                     {
-                        min = mas[j];
+                        min = array[j];
                         imin = j;
                     }
                 }
-                int tmp = mas[i];
-                mas[i] = min;
-                mas[imin] = tmp;
+                int tmp = array[i];
+                array[i] = min;
+                array[imin] = tmp;
             }
         }
 
 
-        public void HeapSort(int[] mas)
+        public void HeapSort(int[] array)
         {
-            Heap s = new Heap(mas);
-            s.ExactlySort(mas);
+            Heap s = new Heap(array);
+            s.ExactlySort(array);
         }
 
 
@@ -253,18 +253,18 @@ namespace Task33
         }
 
 
-        public void CountSort(int[] mas)
+        public void CountSort(int[] array)
         {
-            int[] helpMas = new int[mas.Max() + 20];
-            for (int i = 0; i < mas.Length; i++)
+            int[] helpMas = new int[array.Max() + 20];
+            for (int i = 0; i < array.Length; i++)
             {
-                helpMas[mas[i]] += 1;
+                helpMas[array[i]] += 1;
             }
             int k = 0;
             for (int i = 0; i < helpMas.Length; i++)
             {
                 for (int j = 0; j < helpMas[i]; j++)
-                { mas[k] = i; ++k; }
+                { array[k] = i; ++k; }
             }
         }
 
@@ -355,10 +355,10 @@ namespace Task33
         }
 
 
-        public void RadixSort(int[] mas)
+        public void RadixSort(int[] array)
         {
             //Вспомогательный массив.
-            int[] t = new int[mas.Length];
+            int[] t = new int[array.Length];
 
             // Количество рассматриваемых битов. 
             int r = 4;
@@ -387,10 +387,10 @@ namespace Task33
                     count[j] = 0;
 
 
-                for (int i = 0; i < mas.Length; i++)
+                for (int i = 0; i < array.Length; i++)
                 {
-                    int test = mas[i];
-                    var first = mas[i] >> shift;
+                    int test = array[i];
+                    var first = array[i] >> shift;
                     var num = first & mask;
                     count[num]++;
                 }
@@ -401,14 +401,14 @@ namespace Task33
                     pref[i] = pref[i - 1] + count[i - 1];
 
 
-                for (int i = 0; i < mas.Length; i++)
+                for (int i = 0; i < array.Length; i++)
                 {
-                    var first = mas[i] >> shift;
+                    var first = array[i] >> shift;
                     var num = first & mask;
-                    t[pref[num]++] = mas[i];
+                    t[pref[num]++] = array[i];
                 }
 
-                t.CopyTo(mas, 0);
+                t.CopyTo(array, 0);
                 ///Пояснения насчёт префиксной суммы:
                 ///Префиксная сумма это вспомогательный массив.
                 ///Каждый индекс в этом массиве соответствует sum(0, b) массива, где b
@@ -444,10 +444,10 @@ namespace Task33
 
             List<int> heap;
             int sizeofheap;
-            public Heap(int[] mas)
+            public Heap(int[] array)
             {
-                this.heap = mas.ToList();
-                this.sizeofheap = mas.Length;
+                this.heap = array.ToList();
+                this.sizeofheap = array.Length;
                 for (int i = sizeofheap / 2; i >= 0; i--)
                 {
                     OrderingHeap(i);
@@ -499,24 +499,24 @@ namespace Task33
                 --sizeofheap;
                 return result;
             }
-            public void ExactlySort(int[] mas)
+            public void ExactlySort(int[] array)
             {
                 ///Метод, в котором осуществляется непосредственно сортировка массива.
 
-                for (int i = 0; i < mas.Length; i++)
+                for (int i = 0; i < array.Length; i++)
                 {
-                    mas[i] = this.Min();
+                    array[i] = this.Min();
                     this.OrderingHeap(0);
                 }
 
             }
 
         }
-        public int[] BitonicSort(ref int[] mas)
+        public int[] BitonicSort(ref int[] array)
         {
             
             
-                int n = mas.Length;
+                int n = array.Length;
                 int k, j, l, i, temp;
                 int cond = n & (n - 1);
                 if (cond != 0)
@@ -530,16 +530,16 @@ namespace Task33
                     }
                     n = pow;
                 }
-                int[] nmas = new int[n];
+                int[] newArray = new int[n];
 
-                for (int it = 0; it < nmas.Length; it++)
+                for (int it = 0; it < newArray.Length; it++)
                 {
-                    if (it < mas.Length)
+                    if (it < array.Length)
                     {
-                        nmas[it] = mas[it];
+                        newArray[it] = array[it];
 
                     }
-                    else nmas[it] = -1;
+                    else newArray[it] = -1;
                 }
                 for (k = 2; k <= n; k *= 2)
                 {
@@ -550,38 +550,38 @@ namespace Task33
                             l = i ^ j;
                             if (l > i)
                             {
-                                if (((i & k) == 0) && (nmas[i] > nmas[l]) || (((i & k) != 0) && (nmas[i] < nmas[l])))
+                                if (((i & k) == 0) && (newArray[i] > newArray[l]) || (((i & k) != 0) && (newArray[i] < newArray[l])))
                                 {
-                                    temp = nmas[i];
-                                    nmas[i] = nmas[l];
-                                    nmas[l] = temp;
+                                    temp = newArray[i];
+                                    newArray[i] = newArray[l];
+                                    newArray[l] = temp;
                                 }
                             }
                         }
                     }
                 }
 
-                return nmas;
+                return newArray;
             
         }
-        public void SortChose(int st, int[] mas)
+        public void SortChose(int st, int[] array)
         {
             switch (st)
             {
-                case 0: { this.BubbleSort(mas); break; }
-                case 1: { this.InsertionSort(mas); break; }
-                case 2: { this.SelectionSort(mas); break; }
-                case 3: { this.ShakeSort(mas); break; }
-                case 4: { this.GnomeSort(mas); break; }
-                case 5: { this.BitonicSort(ref mas);break; }
-                case 6: { this.ShellSort(mas);break; }
-                case 7: { this.TreeSort(mas);break; }
-                case 8: { this.CombSort(mas);break; }
-                case 9: { this.HeapSort(mas); break; }
-                case 10: { this.QuickSort(mas, 0, mas.Length - 1);break; }
-                case 11: { this.mergeSort(mas);break; }
-                case 12: { this.CountSort(mas);break; }
-                case 13: { this.RadixSort(mas);break; }
+                case 0: { this.BubbleSort(array); break; }
+                case 1: { this.InsertionSort(array); break; }
+                case 2: { this.SelectionSort(array); break; }
+                case 3: { this.ShakeSort(array); break; }
+                case 4: { this.GnomeSort(array); break; }
+                case 5: { this.BitonicSort(ref array);break; }
+                case 6: { this.ShellSort(array);break; }
+                case 7: { this.TreeSort(array);break; }
+                case 8: { this.CombSort(array);break; }
+                case 9: { this.HeapSort(array); break; }
+                case 10: { this.QuickSort(array, 0, array.Length - 1);break; }
+                case 11: { this.mergeSort(array);break; }
+                case 12: { this.CountSort(array);break; }
+                case 13: { this.RadixSort(array);break; }
             }
 
         }

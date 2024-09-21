@@ -54,6 +54,7 @@
             this.zedGraphControl1.Size = new System.Drawing.Size(625, 525);
             this.zedGraphControl1.TabIndex = 0;
             this.zedGraphControl1.UseExtendedPrintDialog = true;
+            this.zedGraphControl1.Load += new System.EventHandler(this.zedGraphControl1_Load);
             // 
             // comboBox1
             // 
