@@ -73,6 +73,7 @@ namespace WindowsFormsApp1
             GraphPane pane = zedGraphControl1.GraphPane;
             pane.XAxis.Title.Text = "Размер массива";
             pane.YAxis.Title.Text = "Время выполнения мс.";
+            pane.Title.Text = "Зависимость времени выполнения сортировок от размера массива";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -328,7 +329,7 @@ namespace WindowsFormsApp1
 
             int power;
             if (flag == 1) power = 4;
-            else if (flag == 2) power = 5;
+            else if (flag == 2) power = 6;
             else power = 6;
             return power;
 
