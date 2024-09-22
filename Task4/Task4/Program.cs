@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Linq.Expressions;
 using Task4.Task4;
 namespace Task4
@@ -26,7 +27,7 @@ namespace Task4
                 for (int i = 0; i < a.Length; i++)
                 {
                     elementData[i] = a[i];
-                    size += 1;
+                    ++size;
                 }
 
             }
@@ -246,11 +247,11 @@ namespace Task4
             public void Add(int index, T e0)
             {
                 /// Добавление элемента по индексу.
+                if (index > size - 1 || index < 0)
+                    throw new IndexOutOfRangeException();
 
                 if (size + 1 > elementData.Length)
                     ReSize();
-                if (index > size - 1)
-                    return;
 
                 T saveIndex = elementData[index];
                 elementData[index] = e0;
@@ -260,13 +261,16 @@ namespace Task4
                     elementData[i] = saveIndex;
                     saveIndex = saveEl;
                 }
-                size += 1;
+                ++size;
             }
 
             public void Add(int index, T[] elt)
             {
                 /// Вставка элементов массива, начиная с индекса.
-                
+
+                if (index > size - 1 || index < 0)
+                    throw new IndexOutOfRangeException();
+
                 while (size + elt.Length > elementData.Length)
                     ReSize();
                 
@@ -293,7 +297,13 @@ namespace Task4
 
 
 
-            public T get(int index) => elementData[index];
+            public T get(int index) {
+                if (index > size - 1 || index < 0)
+                   throw new IndexOutOfRangeException();
+               
+                return elementData[index]; 
+            
+            }
 
             public int IndexOf(object o)
             {
@@ -324,6 +334,8 @@ namespace Task4
             public T ReturnRemove(int index)
             {
                 /// Метод удаляет элемент, и возвращает его значение пользователю.
+                if (index > size - 1 || index < 0)
+                    throw new IndexOutOfRangeException();
 
                 if (index == size - 1)
                 {
@@ -345,13 +357,16 @@ namespace Task4
             {
                 /// Замена по индексу.
 
-                if (index > size - 1) return;
+                if (index > size - 1 || index < 0)
+                    throw new IndexOutOfRangeException();
                 elementData[index] = e;
             }
 
 
             public T[] SubList(int fromindex, int toindex)
             {
+                if (fromindex > toindex || fromindex < 0 || toindex >= size)
+                    throw new IndexOutOfRangeException();
                 /// Возвращение подмассива с элементами, начиная с первого
                 /// переданного индекса, до последнего.
 
