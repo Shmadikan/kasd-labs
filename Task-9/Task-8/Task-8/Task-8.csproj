@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Task_8</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ConsoleApp2">
+      <HintPath>..\ConsoleApp2\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.dll</HintPath>
+    </Reference>
+    <Reference Include="Task4">
+      <HintPath>..\..\..\..\async_folder\Library\Task4.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
