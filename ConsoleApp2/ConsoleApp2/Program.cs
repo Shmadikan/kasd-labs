@@ -14,7 +14,7 @@ namespace ConsoleApp2
             capacityIncrement = CapIncr;
             elementData = new T[elementCount];
         }
-
+ 
 
         public MyVector(int initialCapacity) {
             elementCount = initialCapacity;
@@ -24,7 +24,7 @@ namespace ConsoleApp2
 
 
         public MyVector() {
-            elementCount = 10;
+            elementCount = 0;
             capacityIncrement = 0;
             elementData = new T[elementCount];
         }
