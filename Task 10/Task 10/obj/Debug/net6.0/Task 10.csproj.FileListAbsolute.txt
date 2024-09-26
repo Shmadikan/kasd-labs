@@ -1,0 +1,18 @@
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task 10.exe
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task 10.deps.json
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task 10.runtimeconfig.json
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task 10.dll
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task 10.pdb
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task4.dll
+D:\CIsHere\Task 10\Task 10\bin\Debug\net6.0\Task4.pdb
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.csproj.AssemblyReference.cache
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.GeneratedMSBuildEditorConfig.editorconfig
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.AssemblyInfoInputs.cache
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.AssemblyInfo.cs
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.csproj.CoreCompileInputs.cache
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.csproj.CopyComplete
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.dll
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\refint\Task 10.dll
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.pdb
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\Task 10.genruntimeconfig.cache
+D:\CIsHere\Task 10\Task 10\obj\Debug\net6.0\ref\Task 10.dll
