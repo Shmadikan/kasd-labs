@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "POLISHNOTATION": {
-      "commandName": "Project",
-      "commandLineArgs": "a=20 b=30\r\nc=40"
-    }
-  }
-}
