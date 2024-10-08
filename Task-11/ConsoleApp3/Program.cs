@@ -93,7 +93,7 @@ namespace ConsoleApp3
 
         public class MyPriorityQueue<T> where T : IComparable
         {
-            public MyVector<T> queue;
+            private MyVector<T> queue;
             private int size;
             private IComparer<T> comparer = new MyComparer<T>();
             //private MyComparer<T> comparer = new MyComparer<T>();
