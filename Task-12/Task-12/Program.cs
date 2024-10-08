@@ -13,7 +13,7 @@ namespace Task_12
             public int index;
             public int stepNumber;
 
-            public int CompareTo(object? obj)
+            private int CompareTo(object? obj)
             {
                 throw new NotImplementedException();
             }
