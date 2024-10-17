@@ -1,0 +1,7 @@
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\bin\Debug\Task-16.dll.config
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\bin\Debug\Task-16.dll
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\bin\Debug\Task-16.pdb
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\obj\Debug\Task-16.csproj.AssemblyReference.cache
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\obj\Debug\Task-16.csproj.CoreCompileInputs.cache
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\obj\Debug\Task-16.dll
+D:\CIsHere\Task-17\task-16\Task-16\Task-16\obj\Debug\Task-16.pdb
