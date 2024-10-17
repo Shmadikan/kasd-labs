@@ -1,0 +1,14 @@
+C:\Users\HONOR\source\repos\Task-16\Task-16\bin\Debug\net8.0\Task-16.exe
+C:\Users\HONOR\source\repos\Task-16\Task-16\bin\Debug\net8.0\Task-16.deps.json
+C:\Users\HONOR\source\repos\Task-16\Task-16\bin\Debug\net8.0\Task-16.runtimeconfig.json
+C:\Users\HONOR\source\repos\Task-16\Task-16\bin\Debug\net8.0\Task-16.dll
+C:\Users\HONOR\source\repos\Task-16\Task-16\bin\Debug\net8.0\Task-16.pdb
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.AssemblyInfoInputs.cache
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.AssemblyInfo.cs
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.csproj.CoreCompileInputs.cache
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.dll
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\refint\Task-16.dll
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.pdb
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\Task-16.genruntimeconfig.cache
+C:\Users\HONOR\source\repos\Task-16\Task-16\obj\Debug\net8.0\ref\Task-16.dll
