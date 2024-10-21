@@ -1,0 +1,37 @@
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-23.exe
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-23.deps.json
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-23.runtimeconfig.json
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-23.dll
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-23.pdb
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.dll
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-16.dll
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.pdb
+D:\cpp\Task-23\Task-23\bin\Debug\net6.0\Task-16.pdb
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.AssemblyReference.cache
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.GeneratedMSBuildEditorConfig.editorconfig
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfoInputs.cache
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfo.cs
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CoreCompileInputs.cache
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CopyComplete
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.dll
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\refint\Task-23.dll
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.pdb
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.genruntimeconfig.cache
+D:\cpp\Task-23\Task-23\obj\Debug\net6.0\ref\Task-23.dll
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\Task-23.deps.json
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\Task-23.dll
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\Task-23.pdb
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.dll
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\Task-16.dll
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.pdb
+D:\cpp\Task - 25\Task-23\Task-23\bin\Debug\net6.0\Task-16.pdb
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.AssemblyReference.cache
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.GeneratedMSBuildEditorConfig.editorconfig
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfoInputs.cache
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfo.cs
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CoreCompileInputs.cache
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CopyComplete
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.dll
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\refint\Task-23.dll
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\Task-23.pdb
+D:\cpp\Task - 25\Task-23\Task-23\obj\Debug\net6.0\ref\Task-23.dll
