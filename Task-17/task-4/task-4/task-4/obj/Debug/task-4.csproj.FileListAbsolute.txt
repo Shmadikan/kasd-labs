@@ -1,7 +1,0 @@
-D:\CIsHere\Task-17\task-4\task-4\task-4\bin\Debug\task-4.dll.config
-D:\CIsHere\Task-17\task-4\task-4\task-4\bin\Debug\task-4.dll
-D:\CIsHere\Task-17\task-4\task-4\task-4\bin\Debug\task-4.pdb
-D:\CIsHere\Task-17\task-4\task-4\task-4\obj\Debug\task-4.csproj.AssemblyReference.cache
-D:\CIsHere\Task-17\task-4\task-4\task-4\obj\Debug\task-4.csproj.CoreCompileInputs.cache
-D:\CIsHere\Task-17\task-4\task-4\task-4\obj\Debug\task-4.dll
-D:\CIsHere\Task-17\task-4\task-4\task-4\obj\Debug\task-4.pdb
