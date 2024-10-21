@@ -1,0 +1,6 @@
+D:\cpp\Task-17\HashSet\HashSet\HashSet\bin\Debug\HashSet.dll
+D:\cpp\Task-17\HashSet\HashSet\HashSet\bin\Debug\HashSet.pdb
+D:\cpp\Task-17\HashSet\HashSet\HashSet\obj\Debug\HashSet.csproj.AssemblyReference.cache
+D:\cpp\Task-17\HashSet\HashSet\HashSet\obj\Debug\HashSet.csproj.CoreCompileInputs.cache
+D:\cpp\Task-17\HashSet\HashSet\HashSet\obj\Debug\HashSet.dll
+D:\cpp\Task-17\HashSet\HashSet\HashSet\obj\Debug\HashSet.pdb
