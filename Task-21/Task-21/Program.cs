@@ -168,11 +168,7 @@ namespace Task_21
         }
 
 
-        public K FirstKey() {
-            if (root != null)
-                return root.Key;
-            return default(K);
-        }
+        
 
 
         public void Remove(K key) {
@@ -320,6 +316,72 @@ namespace Task_21
             return default(Tuple<K, T>);
         }
         public int Size() => size;
+
+
+        public K FirstKey() {
+            TreeElement copy = root;
+            if (root == null)
+                return default(K);
+            while (copy.left != null)
+                copy = copy.left;
+            
+            return copy.Key;
+        }
+
+
+        public K LastKey()
+        {
+            TreeElement copy = root;
+            if (root == null)
+                return default(K);
+            while (copy.right != null)
+                copy = copy.right;
+            return copy.Key;
+        }
+
+
+        public Tuple<K, T> FirstEntry() {
+            TreeElement copy = root;
+            if (root == null)
+                return default(Tuple<K,T>);
+            while (copy.left != null)
+                copy = copy.left;
+            Tuple<K, T> tuple = new Tuple<K, T>(copy.Key, copy.Value);
+            return tuple;
+        }
+
+
+        public Tuple<K, T> LastEntry()
+        {
+            TreeElement copy = root;
+            if (root == null)
+                return default(Tuple<K, T>);
+            while (copy.right != null)
+                copy = copy.right;
+            Tuple<K, T> tuple = new Tuple<K, T>(copy.Key, copy.Value);
+            return tuple;
+        }
+
+
+        public Tuple<K, T> PollFirstEntry() {
+            TreeElement copy = root;
+            if (root == null)
+                return default(Tuple<K, T>);
+            Tuple<K, T> tuple = FirstEntry();
+            Remove(tuple.Item1);
+            return tuple;
+        }
+
+
+        public Tuple<K, T> PollLastEntry()
+        {
+            TreeElement copy = root;
+            if (root == null)
+                return default(Tuple<K, T>);
+            Tuple<K, T> tuple = LastEntry();
+            Remove(tuple.Item1);
+            return tuple;
+        }
 
         public Tuple<K, T> FloorEntry(K key)
         {
