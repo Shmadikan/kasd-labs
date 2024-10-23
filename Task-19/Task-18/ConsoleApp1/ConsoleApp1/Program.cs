@@ -44,7 +44,7 @@ namespace HashMap
 
             public T Get(K key) {
                 var el = Entry[Math.Abs((key.GetHashCode()) % Entry.Length)];
-
+                
                 for (int i = 0; i < el.Size(); i++)
                 {
                     Tuple<K, T> tup = el.Get(i);
