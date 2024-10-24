@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CIsHere\\Task-21\\Task-21\\Task-21.csproj": {}
+    "D:\\cpp\\Task-21\\Task-21\\Task-21.csproj": {}
   },
   "projects": {
-    "D:\\CIsHere\\Task-21\\Task-21\\Task-21.csproj": {
+    "D:\\cpp\\Task-21\\Task-21\\Task-21.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CIsHere\\Task-21\\Task-21\\Task-21.csproj",
+        "projectUniqueName": "D:\\cpp\\Task-21\\Task-21\\Task-21.csproj",
         "projectName": "Task-21",
-        "projectPath": "D:\\CIsHere\\Task-21\\Task-21\\Task-21.csproj",
+        "projectPath": "D:\\cpp\\Task-21\\Task-21\\Task-21.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\CIsHere\\Task-21\\Task-21\\obj\\",
+        "outputPath": "D:\\cpp\\Task-21\\Task-21\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
