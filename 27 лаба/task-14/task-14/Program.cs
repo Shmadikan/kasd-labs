@@ -432,10 +432,11 @@ namespace task_14
                 int size;
                 int tail = 0;
                 bool flagDel = false;
-                internal MyItr(MyArrayDeque<T> Deq) {
+                internal MyItr(MyArrayDeque<T> Deq)
+                {
                     copy = Deq;
                     size = Deq.Size();
-                    
+
                 }
 
 
@@ -443,7 +444,7 @@ namespace task_14
 
                 public bool HasNext()
                 {
-                    if (tail == copy.Size())
+                    if (tail >= copy.Size() || tail == -1)
                         return false;
                     return true;
                 }
@@ -452,15 +453,15 @@ namespace task_14
                 {
                     
                     current = copy.Get(tail);
-                    tail += 1;
+                    tail++;
                     return current;
                 }
 
                 public void Remove()
                 {
-                    
+                    tail = copy.IndexOf(current);
                     copy.Remove(current);
-                    tail += 1;
+
                     flagDel = true;
                 }
             }
@@ -489,8 +490,10 @@ namespace task_14
             var iter = deque.Iterator();
             while (iter.HasNext()) {
                 iter.Next();
-                iter.Remove();
-                Console.WriteLine(iter.Current);
+                if (iter.Current == 1)
+                    iter.Remove();
+                else
+                    Console.WriteLine(iter.Current);
             
             }
         }

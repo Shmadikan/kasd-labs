@@ -18,3 +18,25 @@ D:\cpp\Task-23\Task-23\obj\Debug\net6.0\refint\Task-23.dll
 D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.pdb
 D:\cpp\Task-23\Task-23\obj\Debug\net6.0\Task-23.genruntimeconfig.cache
 D:\cpp\Task-23\Task-23\obj\Debug\net6.0\ref\Task-23.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-23.exe
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-23.deps.json
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-23.runtimeconfig.json
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-23.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-23.pdb
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\AllInterface.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-16.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\AllInterface.pdb
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\ConsoleApp1.pdb
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\bin\Debug\net6.0\Task-16.pdb
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.AssemblyInfo.cs
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.csproj.CopyComplete
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\refint\Task-23.dll
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.pdb
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\Task-23.genruntimeconfig.cache
+C:\Users\user\Desktop\27 лаба\Task-23\Task-23\obj\Debug\net6.0\ref\Task-23.dll

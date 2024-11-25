@@ -6,8 +6,11 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;
 using Task_16;
 using AllInterface;
+using System.Reflection;
+
 namespace ConsoleApp1
 {
+    
         public class MyHashMap<K, T>:MyMap<K, T> where T:IComparable {
            
             MyLinkedList<Tuple<K, T>>[] Entry;
@@ -252,9 +255,48 @@ namespace ConsoleApp1
                 }
                 size += 1;
             }
+        public class Iter : MyIterator<K>
+        {
+            MyHashMap<K, T> copy;
+            internal Iter(MyHashMap<K, T> map) {
+                copy = map;
+            }
 
-            
 
+        
+
+
+            public K Current => throw new NotImplementedException();
+
+            public bool HasNext()
+            {
+                copy.
+                throw new NotImplementedException();
+            }
+
+            public K Next()
+            {
+                throw new NotImplementedException();
+            }
+
+            public void Remove()
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+
+
+    }
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+
+
+
+            }
 
 
         }

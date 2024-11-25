@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Task-24/1.0.0": {
+        "dependencies": {
+          "AllInterface": "1.0.0.0"
+        },
         "runtime": {
           "Task-24.dll": {}
+        }
+      },
+      "AllInterface/1.0.0.0": {
+        "runtime": {
+          "AllInterface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -16,6 +27,11 @@
   "libraries": {
     "Task-24/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AllInterface/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

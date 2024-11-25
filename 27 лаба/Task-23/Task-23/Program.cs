@@ -50,6 +50,7 @@ namespace Task_23
                     map.Put(el, false);
             }
 
+            public MyItr Iterator() => new MyItr(this);
 
             public void Clear()
             {
@@ -193,6 +194,47 @@ namespace Task_23
                 }
                 return SubSet;
             }
+
+
+            public class MyItr : MyIterator<T>
+            {
+                MyHashSet<T> CopySet = new MyHashSet<T>();
+                T? current = default(T);
+                int CurrentIndex = -1;
+                T[] array;
+                public T Current
+                {
+                    get => current;
+                }
+                
+                
+                
+
+                internal MyItr(MyHashSet<T> Set) { 
+                    CopySet = Set;
+                    array = CopySet.map.KeySet();
+                
+                }
+
+
+                public bool HasNext()
+                {
+                    if (CurrentIndex + 1 == array.Length)
+                        return false;
+                    return true;
+                }
+
+                public T Next()
+                {
+                    current = array[++CurrentIndex];
+                    return current;
+                }
+
+                public void Remove()
+                {
+                    CopySet.Remove(array[CurrentIndex]);
+                }
+            }
         }
 
 
@@ -201,14 +243,21 @@ namespace Task_23
 
         static void Main(string[] args)
         {
-            MyHashSet<string> set = new MyHashSet<string>();
+            MyHashSet<int> set = new MyHashSet<int>();
             string[] a = {"a", "b", "c", "d"};
-            set.AddAll(a);
-            set.Remove("d");
+            int[] b = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            set.AddAll(b);
+
+            var iter = set.Iterator();
+            while (iter.HasNext()) {
+                if (iter.Next() % 2 == 0)
+                    iter.Remove();
+                else
+                    Console.WriteLine(iter.Current);
+            }
             
-            string[] arr = set.ToArray();
-            for (int i = 0; i < arr.Length; i++)
-                Console.Write(arr[i] + " ");
+
+
             //MyHashSet<int> set = new MyHashSet<int>();
 
             //set.Add(7);set.Add(2);set.Add(3);

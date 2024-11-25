@@ -1111,6 +1111,64 @@ namespace Task_24
         }
 
 
+        public class MyItr : MyIterator<K>
+        {
+            TreeElement? current = null;
+            int IteratedElements = 0;
+            MyTreeSet<K> CopySet;
+            List<TreeElement> CompletedNode = new List<TreeElement>();
+
+            K keyCur;
+            private Stack<TreeElement> stack = new Stack<TreeElement>();
+            public K Current { get => keyCur; }
+
+
+            internal MyItr(MyTreeSet<K> TreeSet) {
+                CopySet = TreeSet;
+                
+                
+            
+            }
+
+            public bool HasNext()
+            {
+                if (IteratedElements == CopySet.size)
+                    return false;
+                return true;
+            }
+
+            public K Next()
+            {
+                if (current == null) 
+                    current = CopySet.root;
+                    
+                
+                while (current != CopySet.nil)
+                {
+                    stack.Push(current);
+                    current = current.right;
+                }
+                current = stack.Pop();
+                keyCur =current.Key;
+                
+
+
+                current = current.left;
+                IteratedElements++;
+                
+                return keyCur;
+            }
+
+            public void Remove()
+            {
+                CopySet.Remove(current.Key);
+                IteratedElements--;
+                stack = new Stack<TreeElement>();
+                current = null;
+            }
+        }
+
+
 
 
         private IEnumerable<K> BFS()
@@ -1254,67 +1312,31 @@ namespace Task_24
         
         
         }
+        public MyItr Iterator() => new MyItr(this);
+        
     }
 
 
 
     internal class Program
     {
+        
         static void Main(string[] args)
         {
-            
+           
+
             List<int> lst = new List<int>();
             int[] a = { 10, 15, 2, 76, 18, 20, 1, 3, 9, 17, 12, 4, 22, 13 };
             MyTreeSet<int> tree = new MyTreeSet<int>(a);
-            tree.Add(10);
-            tree.Add(15);
-            tree.Add(2);
-            tree.Add(76);
-            tree.Add(18);
-            tree.Add(20);
-            tree.Add(1);
-            tree.Add(3);
-            tree.Add(9);
-            tree.Add(17);
-            tree.Add(12);
-            tree.Add(4);
-            tree.Add(22);
-            tree.Add(13);
 
-
-            
-            
-
-            IEnumerator iterator = tree.DescendingIterator();
-            foreach (var el in tree) {
-                
-            
-            }
-            while (iterator.MoveNext()) { 
-                Console.Write(iterator.Current + " ");
+            var iter = tree.Iterator();
+            while (iter.HasNext()) {
+                iter.Next();
+                iter.Remove();
+                Console.WriteLine(iter.Current);
             
             }
 
-
-            MyTreeSet<int> secondtree = (MyTreeSet<int>)tree.SubSet(2, 10, true, true);
-            
-
-
-
-            Console.WriteLine("");
-            IEnumerator seconditer = secondtree.DescendingIterator();
-            secondtree.Add(5);
-            while (seconditer.MoveNext()) {
-                Console.Write(seconditer.Current + " ");
-
-
-            }
-            Console.WriteLine();
-            foreach (var el in tree)
-            {
-                Console.Write(el + " ");
-
-            }
 
 
             //var set = new SortedSet<int>(a);

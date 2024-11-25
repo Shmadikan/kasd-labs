@@ -12,3 +12,7 @@ C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\refint\Task-2
 C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\Task-24.pdb
 C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\Task-24.genruntimeconfig.cache
 C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\ref\Task-24.dll
+C:\Users\user\Desktop\27 лаба\Task-24\Task-24\bin\Debug\net6.0\AllInterface.dll
+C:\Users\user\Desktop\27 лаба\Task-24\Task-24\bin\Debug\net6.0\AllInterface.pdb
+C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\Task-24.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\27 лаба\Task-24\Task-24\obj\Debug\net6.0\Task-24.csproj.CopyComplete

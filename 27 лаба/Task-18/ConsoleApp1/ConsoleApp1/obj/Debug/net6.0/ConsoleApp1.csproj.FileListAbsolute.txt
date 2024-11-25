@@ -33,3 +33,6 @@ C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\obj\Debug\net6
 C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ref\ConsoleApp1.dll
 C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\AllInterface.dll
 C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\AllInterface.pdb
+C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.exe
+C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
+C:\Users\user\Desktop\27 лаба\Task-18\ConsoleApp1\ConsoleApp1\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
