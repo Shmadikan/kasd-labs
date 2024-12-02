@@ -448,6 +448,11 @@ namespace Task_24
                 {
                     Delete(copy);
                     size--;
+                    if (size == 0)
+                    {
+                        root = null;
+                        return;
+                    }
                     while (root.prev != null)
                         root = root.prev;
                     break;
@@ -641,6 +646,13 @@ namespace Task_24
                     Brother.color = Color.Black;
                     Parent.color = Color.Red;
                     LeftRotate(Brother);
+                    if (Parent.prev.left == Parent)
+                    {
+                        if (Parent.left == nil)
+                            nil.prev = Parent;
+                        DelBalance(Parent.left);
+                    }
+                    
                 }
             }
 
@@ -1091,6 +1103,8 @@ namespace Task_24
 
             public bool MoveNext()
             {
+                if (Copy == null)
+                    return false;
                 if (Copy == Nil && stack.Count == 0)
                     return false;
                 while (Copy != Nil)
@@ -1113,58 +1127,54 @@ namespace Task_24
 
         public class MyItr : MyIterator<K>
         {
-            TreeElement? current = null;
-            int IteratedElements = 0;
             MyTreeSet<K> CopySet;
-            List<TreeElement> CompletedNode = new List<TreeElement>();
-
-            K keyCur;
-            private Stack<TreeElement> stack = new Stack<TreeElement>();
-            public K Current { get => keyCur; }
-
-
+            K CurrentKey;
+            TreeElement current;
+            public K Current { get => CurrentKey; }
+            int PrevElements = 0;
+            Stack<TreeElement> stack = new Stack<TreeElement>();
             internal MyItr(MyTreeSet<K> TreeSet) {
                 CopySet = TreeSet;
-                
+                current = CopySet.nil;
                 
             
             }
 
             public bool HasNext()
             {
-                if (IteratedElements == CopySet.size)
+                if (PrevElements >= CopySet.size)
                     return false;
                 return true;
             }
 
             public K Next()
             {
-                if (current == null) 
+                if (current == CopySet.nil && PrevElements == 0) 
                     current = CopySet.root;
                     
                 
                 while (current != CopySet.nil)
                 {
                     stack.Push(current);
-                    current = current.right;
+                    current = current.left;
                 }
                 current = stack.Pop();
-                keyCur =current.Key;
+                CurrentKey = current.Key;
+                current = current.right;
+                PrevElements++;
                 
-
-
-                current = current.left;
-                IteratedElements++;
-                
-                return keyCur;
+                return CurrentKey;
             }
 
             public void Remove()
             {
-                CopySet.Remove(current.Key);
-                IteratedElements--;
-                stack = new Stack<TreeElement>();
-                current = null;
+                if (CopySet.Contains(CurrentKey))
+                {
+                    CopySet.Remove(CurrentKey);
+                    current = CopySet.root;
+                    stack.Clear();
+                    PrevElements--;
+                }
             }
         }
 
@@ -1313,7 +1323,20 @@ namespace Task_24
         
         }
         public MyItr Iterator() => new MyItr(this);
+        public int SumMemory() {
+            return Memories(this.root);
+            int Memories(TreeElement root) {
+                if (root == nil)
+                    return System.Runtime.InteropServices.Marshal.SizeOf(root);
+                else { 
+                    return Memories(root.left) + System.Runtime.InteropServices.Marshal.SizeOf(root) + Memories(root.right);
+                
+                
+                }
+
+            }
         
+        }
     }
 
 
@@ -1323,43 +1346,12 @@ namespace Task_24
         
         static void Main(string[] args)
         {
-           
 
-            List<int> lst = new List<int>();
+            
+
             int[] a = { 10, 15, 2, 76, 18, 20, 1, 3, 9, 17, 12, 4, 22, 13 };
             MyTreeSet<int> tree = new MyTreeSet<int>(a);
-
-            var iter = tree.Iterator();
-            while (iter.HasNext()) {
-                iter.Next();
-                iter.Remove();
-                Console.WriteLine(iter.Current);
             
-            }
-
-
-
-            //var set = new SortedSet<int>(a);
-            //SortedSet<int> newset = set.GetViewBetween(4, 15);
-            //foreach (var el in set)
-            //    Console.Write(el + " ");
-            //Console.WriteLine();
-            //foreach (var el in newset)
-            //    Console.Write(el + " ");
-            //Console.WriteLine();
-            //newset.Add(146565);
-
-            //foreach (var el in set)
-
-            //    Console.Write(el + " ");
-            //Console.WriteLine();
-            //foreach (var el in newset)
-            //    Console.Write(el + " ");
-            //Console.WriteLine();
-            ////MyTreeSet<int> Sub = tree.HeadSet(12);
-            ////Console.WriteLine(tree.Ceiling(11));
-
-
 
         }
     }

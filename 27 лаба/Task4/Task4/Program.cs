@@ -5,11 +5,11 @@ using Task4.Task4;
 using AllInterface;
 namespace Task4
 {
-    
+
 
     namespace Task4
     {
-        public class MyArrayList<T>:MyList<T> where T:IComparable
+        public class MyArrayList<T> : MyList<T> where T : IComparable
         {
             int size;
             public T[] elementData = null;
@@ -19,17 +19,17 @@ namespace Task4
                 size = 0;
             }
 
-            public MyArrayList(T[] a)
+            public MyArrayList(MyCollection<T> a)
             {
-                if (a.Length == 0)
-                    
-                    return;
-                elementData = new T[a.Length * 2];
-                for (int i = 0; i < a.Length; i++)
-                {
-                    elementData[i] = a[i];
-                    ++size;
+                
+                elementData = new T[a.Size() * 2];
+                var iter = a.Iterator();
+                int index = 0;
+                while (iter.HasNext()) {
+                    elementData[index++] = iter.Next();
+                    size++;
                 }
+                
 
             }
 
@@ -52,18 +52,32 @@ namespace Task4
                 elementData[size - 1] = e;
             }
 
-            public void AddAll(T[] a) { 
-                foreach (T element in a)
+            public void AddAll(MyCollection<T> a)
+            {
+                
+                var iter = a.Iterator();
+
+                while (iter.HasNext())
+                {
+                    T element = iter.Next();
+                    
                     Add(element);
-            
+                }
+
             }
 
 
-            public void AddAll(int index, T[] a) {
-                foreach (T element in a)
-                    Add(index, element);
-            
-            
+            public void AddAll(int index, MyCollection<T> a)
+            {
+
+                var iter = a.Iterator();
+                while (iter.HasNext())
+                {
+                    T element = iter.Next();
+                    
+                        Add(index, element);
+                }
+
             }
 
             public void Clear()
@@ -76,7 +90,7 @@ namespace Task4
             public bool Contains(object o)
             {
                 ///Проверка на содержание элемента.
-                
+
                 T oConverter = (T)o;
                 foreach (T e in elementData)
                     if (oConverter.Equals(e))
@@ -85,22 +99,26 @@ namespace Task4
                 return false;
             }
 
-            public bool ContainsAll(T[] a)
+            public bool ContainsAll(MyCollection<T> a)
             {
                 /// Метод, проверяющий наличие всех элементов
                 /// Из передаваемого массива в динамическом.
-                
 
+                MyIterator<T> iter = a.Iterator();
 
-                foreach (T e in a)
+                while (iter.HasNext())
                 {
+                    T e = iter.Next();
+
+
                     bool flag = false;
                     foreach (T t in elementData)
                         if (t.Equals(e) == true)
                             flag = true;
                     if (!flag) return false;
-                }
-                return true;
+                }    
+                    return true;
+                
             }
 
 
@@ -136,30 +154,35 @@ namespace Task4
             }
 
 
-            public void RemoveAll(T[] a)
+            public void RemoveAll(MyCollection<T> a)
             {
                 /// Метод, удаляющий все элементы из динамического массива,
                 /// При условии, что этот элемент есть в передаваемом массиве.
 
                 if (size > 0)
                 {
-                    foreach (T o in a) 
-                    for (int i = 0; i < elementData.Length; i++)
+                    var iter = a.Iterator();
+                    while (iter.HasNext())
                     {
-                        if (elementData[i].Equals(o))
-                        {
-                            if (i == elementData.Length - 1)
+                        T o = iter.Next();
+                        
+                            for (int i = 0; i < elementData.Length; i++)
                             {
-                                size -= 1; return;
+                                if (elementData[i].Equals(o))
+                                {
+                                    if (i == elementData.Length - 1)
+                                    {
+                                        size -= 1; return;
+                                    }
+                                    for (int j = 0; j < elementData.Length - 1; j++)
+                                    {
+                                        if (j >= i)
+                                            elementData[j] = elementData[j + 1];
+                                    }
+                                    size -= 1;
+
+                                }
                             }
-                            for (int j = 0; j < elementData.Length - 1; j++)
-                            {
-                                if (j >= i)
-                                    elementData[j] = elementData[j + 1];
-                            }
-                            size -= 1;
-                            
-                        }
                     }
                 }
 
@@ -167,18 +190,20 @@ namespace Task4
 
 
 
-                
+
             }
 
 
-            public void RetainAll(T[] a)
+            public void RetainAll(MyCollection<T> a)
             {
                 /// Метод, который оставляет в дин. массиве элементы из а.
 
 
 
-                if (size > 0) {
-                    for (int i = 0; i < size;) {
+                if (size > 0)
+                {
+                    for (int i = 0; i < size;)
+                    {
                         if (ElInArray(elementData[i]) == false)
                         {
                             if (i == size - 1)
@@ -194,9 +219,9 @@ namespace Task4
 
                         }
                         else i++;
-                    
-                    } 
-                    
+
+                    }
+
 
 
 
@@ -204,13 +229,14 @@ namespace Task4
 
                 }
 
-                bool ElInArray(T el) 
+                bool ElInArray(T el)
                 {
                     /// Вспомогательный метод, для проверки наличия элемента.
 
                     bool flag = false;
-                    for (int i = 0; i < a.Length; i++)
-                        if (a[i].Equals(el))
+                    T[] array = a.ToArray();
+                    for (int i = 0; i < array.Length; i++)
+                        if (array[i].Equals(el))
                             flag = true;
                     return flag;
 
@@ -237,7 +263,8 @@ namespace Task4
                 /// Метод, который добавляет в массив а, все элементы из дин. массива.
                 /// Если передаваемый массив пустой, то возвращает все элементы дин массива.
 
-                if (a == null) {
+                if (a == null)
+                {
                     T[] Ret = new T[size];
                     for (int i = 0; i < size; i++)
                         Ret[i] = elementData[i];
@@ -247,10 +274,11 @@ namespace Task4
 
                 T[] RetArray = new T[a.Length + size];
                 int index = 0;
-                for (;index < a.Length;index++ )
+                for (; index < a.Length; index++)
                     RetArray[index] = a[index];
 
-                for (int j = 0; j < size; j++) {
+                for (int j = 0; j < size; j++)
+                {
                     RetArray[index] = elementData[j];
                     index += 1;
                 }
@@ -287,36 +315,38 @@ namespace Task4
 
                 while (size + elt.Length > elementData.Length)
                     ReSize();
-                
+
                 T[] newArray = new T[size - index];
                 for (int i = index, j = 0; j < size - index; i++, j++)
                     newArray[j] = elementData[i];
                 int it = index;
-                for (int j = 0; j < elt.Length; j++) {
+                for (int j = 0; j < elt.Length; j++)
+                {
                     elementData[it] = elt[j];
                     it++;
                 }
                 size = size + elt.Length;
                 for (int k = 0; k < newArray.Length; it++, k++)
-                
+
                     elementData[it] = newArray[k];
-                    
-                
 
 
-                
+
+
+
 
 
             }
 
 
 
-            public T Get(int index) {
+            public T Get(int index)
+            {
                 if (index > size - 1 || index < 0)
-                   throw new IndexOutOfRangeException();
-               
-                return elementData[index]; 
-            
+                    throw new IndexOutOfRangeException();
+
+                return elementData[index];
+
             }
 
             public int IndexOf(object o)
@@ -400,7 +430,7 @@ namespace Task4
 
                 if (size > elementData.Length)
                 {
-                    
+
                     T[] NewArray = new T[elementData.Length * 2];
                     for (int i = 0; i < elementData.Length; i++)
                         NewArray[i] = elementData[i];
@@ -408,7 +438,8 @@ namespace Task4
                 }
             }
 
-            public void Print() {
+            public void Print()
+            {
                 /// Отладочный метод для просмотра элементов массива.
 
                 if (elementData != null)
@@ -419,6 +450,114 @@ namespace Task4
             }
 
 
+            public MyIterator<T> Iterator() => new MyItr(this);
+            public AnotherMyIterator<T> ListIterator() => new MyItr(this);
+            public MyItr IndexIterator(int index) => new MyItr(this, index);
+            
+
+            public class MyItr : AnotherMyIterator<T>
+            {
+                MyArrayList<T> Copy;
+                int index;
+                private T elem;
+                public T Current
+                {
+                    get
+                    {
+
+
+                        return elem;
+                    }
+                }
+                internal MyItr(MyArrayList<T> array, int index = -1)
+                {
+                    Copy = array;
+                    this.index = index;
+                }
+                public void Add(T element)
+                {
+                    if (Copy.size + 1 == Copy.elementData.Length)
+                    {
+                        Copy.ReSize();
+                        Copy.elementData[index + 1] = element;
+                        Copy.size++;
+                        return;
+                    }
+                    T el = Copy.elementData[index + 1];
+                    Copy.elementData[index + 1] = element;
+                    for (int ind = index + 2; ind <= Copy.size; ind++)
+                    {
+                        T rem = Copy.elementData[ind];
+                        Copy.elementData[ind] = el;
+                        el = rem;
+
+                    }
+                    Copy.size++;
+                }
+
+                public bool HasNext()
+                {
+                    if (index + 1 == Copy.size)
+                        return false;
+                    return true;
+
+                }
+
+                public bool HasPrevious()
+                {
+                    if (index - 1 > 0)
+                        return true;
+                    return false;
+                    throw new NotImplementedException();
+                }
+
+                public T Next()
+                {
+                    elem = Copy.elementData[++index];
+                    return elem;
+                    throw new NotImplementedException();
+                }
+
+                public int NextIndex()
+                {
+                    return index + 1;
+                    throw new NotImplementedException();
+                }
+
+                public T Previous()
+                {
+                    if (index == 0)
+                    {
+                        index--;
+                        return default(T);
+                    }
+                    return Copy.elementData[--index];
+                    throw new NotImplementedException();
+                }
+
+                public int PreviousIndex()
+                {
+                    return (index - 1);
+                    throw new NotImplementedException();
+                }
+
+
+                public void Remove()
+                {
+                    elem = Copy.elementData[index];
+                    Copy.Remove(index);
+
+                    index--;
+
+                }
+
+                public void Set(T element)
+                {
+                    elem = element;
+                    Copy.elementData[index] = element;
+
+                }
+            }
 
         }
     }
@@ -429,7 +568,26 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            /// Пустота.
+            int[] a = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            MyArrayList<int> array = new MyArrayList<int>(a);
+            var iter =  (AnotherMyIterator<int>)array.Iterator();
+            
+            
+            
+            iter.Next();
+            iter.Add(1);
+            iter.Previous();
+            
+            while (iter.HasNext())
+            {
+                iter.Next();
+                Console.WriteLine(iter.Current);
+
+            }
+
+
+
+
         }
     }
 }

@@ -3,31 +3,36 @@ namespace Task_16
 {
     internal class Program
     {
-        public class MyLinkedList<T>:MyList<T> where T:IComparable{
+        public class MyLinkedList<T> : MyList<T> where T : IComparable
+        {
             LinkedListElement<T>? first;
             LinkedListElement<T>? last;
             int size;
 
-            public MyLinkedList() {
+            public MyLinkedList()
+            {
                 first = null;
                 last = null;
                 size = 0;
             }
 
-            public MyLinkedList(T[] a) {
+            public MyLinkedList(MyCollection<T> a)
+            {
                 first = new LinkedListElement<T>();
                 last = new LinkedListElement<T>();
-                first.Value = a[0];
+                var iter = a.Iterator();
+                first.Value = iter.Next();
                 last = first;
                 size++;
-                for (int i = 1; i < a.Length; i++) {
-                    Add(a[i]);
-
-                }
+                while (iter.HasNext())
+                    Add(iter.Next());
+                
             }
 
-            public void Add(T el) {
-                if (first == null) {
+            public void Add(T el)
+            {
+                if (first == null)
+                {
                     first = new LinkedListElement<T>();
                     first.Value = el;
                     last = first;
@@ -45,13 +50,17 @@ namespace Task_16
             }
 
 
-            public void AddAll(T[] a) {
-                foreach (T el in a)
+            public void AddAll(MyCollection<T> a)
+            {
+                var iter = a.Iterator();
+                while (iter.HasNext()) { 
+                    T el = iter.Next();
                     Add(el);
-
+                }
             }
 
-            public T Get(int index) {
+            public T Get(int index)
+            {
                 int curIndex = 0;
                 if (index >= size)
                     throw new IndexOutOfRangeException();
@@ -60,7 +69,8 @@ namespace Task_16
                 if (index == 0)
                     return first.Value;
                 LinkedListElement<T>? iterator = first;
-                while (curIndex != index) {
+                while (curIndex != index)
+                {
                     iterator = iterator.next;
                     curIndex++;
                 }
@@ -68,7 +78,8 @@ namespace Task_16
             }
 
 
-            public void Clear() {
+            public void Clear()
+            {
                 first = null;
                 last = first;
             }
@@ -77,7 +88,8 @@ namespace Task_16
             public bool Contains(object o)
             {
                 LinkedListElement<T>? iterator = first;
-                while (iterator != null) {
+                while (iterator != null)
+                {
                     if (iterator.Value.Equals((T)o))
                         return true;
                     iterator = iterator.next;
@@ -87,13 +99,17 @@ namespace Task_16
             }
 
 
-            public bool ContainsAll(T[] a) {
-                foreach (T el in a) {
+            public bool ContainsAll(MyCollection<T> a)
+            {
+                var iter = a.Iterator();
+                while (iter.HasNext())
+                {
+                    T el = iter.Next();
                     if (Contains(el) == false)
                         return false;
-
                 }
                 return true;
+                
 
             }
 
@@ -101,21 +117,24 @@ namespace Task_16
             public bool IsEmpty() => size == 0;
 
 
-            public void Remove(object o) {
+            public void Remove(object o)
+            {
                 LinkedListElement<T>? iterator = first;
                 if (first.Value.Equals((T)o))
                 {
                     first = first.next;
                     return;
                 }
-                if (last.Value.Equals((T)o)) {
+                if (last.Value.Equals((T)o))
+                {
                     last = last.prev;
                     return;
-                
+
                 }
 
 
-                while (iterator.next != null) {
+                while (iterator.next != null)
+                {
                     if (iterator.next.Value.Equals((T)o))
                     {
                         iterator.next = iterator.next.next;
@@ -124,19 +143,26 @@ namespace Task_16
                         iterator = iterator.next;
                 }
 
-            
+
             }
 
 
-            public void RemoveAll(T[] a) {
-                foreach (T el in a)
+            public void RemoveAll(MyCollection<T> a)
+            {
+                var iter = a.Iterator();
+                while (iter.HasNext())
+                {
+                    T el = iter.Next();
                     Remove(el);
+                }
             }
 
 
-            public void RetainAll(T[] a) {
+            public void RetainAll(MyCollection<T> a)
+            {
                 int index = 0;
-                for (int i = 0; i < size; i++) {
+                for (int i = 0; i < size; i++)
+                {
                     T el = Get(index);
                     if (Contains(el) == false)
                     {
@@ -145,16 +171,18 @@ namespace Task_16
                     else
                         index++;
                 }
-                bool Contains(T el) {
-                    for (int i = 0; i < a.Length; i++)
+                bool Contains(T el)
+                {
+                    var iter = a.Iterator();
+                    while (iter.HasNext())
                     {
-                        if (el.Equals(a[i]))
+                        if (el.Equals(iter.Next()))
                             return true;
                     }
                     return false;
                 }
-            
-            
+
+
             }
 
 
@@ -178,20 +206,23 @@ namespace Task_16
 
                 T[] retArray = new T[size + a.Length];
                 int index = 0;
-                for (;index < a.Length; index++)
+                for (; index < a.Length; index++)
                     retArray[index] = a[index];
-                for (int i = 0; i < size; i++) {
+                for (int i = 0; i < size; i++)
+                {
                     retArray[index] = Get(i);
                     index++;
-                
+
                 }
                 return retArray;
 
             }
 
 
-            public void Add(int index, T el) {
-                if (index == 0) { 
+            public void Add(int index, T el)
+            {
+                if (index == 0)
+                {
                     LinkedListElement<T> iter = new LinkedListElement<T>();
                     iter.Value = el;
                     iter.next = first;
@@ -199,7 +230,8 @@ namespace Task_16
                     first = iter;
                     return;
                 }
-                if (index == size - 1) {
+                if (index == size - 1)
+                {
                     LinkedListElement<T> iter = new LinkedListElement<T>();
                     iter.Value = el;
                     iter.prev = last;
@@ -210,39 +242,48 @@ namespace Task_16
                 int current = 0;
                 LinkedListElement<T> iters = new LinkedListElement<T>();
                 iters = first;
-                while (current + 1 != index) {
+                while (current + 1 != index)
+                {
                     iters = iters.next; current++;
                 }
-                if (current + 1 == index) {
+                if (current + 1 == index)
+                {
                     LinkedListElement<T> nextEl = new LinkedListElement<T>();
                     nextEl.Value = el;
                     nextEl.prev = iters;
                     nextEl.next = iters.next;
-                    
+
                     iters.next.prev = nextEl;
                     iters.next = nextEl;
                 }
             }
 
 
-            public void AddAll(int index, T[] a) {
-                for (int i = a.Length - 1; i >= 0; i--) {
-                    Add(index, a[i]);
+            public void AddAll(int index, MyCollection<T> a)
+            {
+                var iter = a.Iterator();
                 
+                while (iter.HasNext())
+                {
+                    T el = iter.Next();
+                    Add(index,el);
                 }
-            
-            
+                
+
+
             }
 
 
-            public int IndexOf(object o) { 
+            public int IndexOf(object o)
+            {
                 T el = (T)o;
                 int index = 0;
-                
+
 
                 LinkedListElement<T> iter = new LinkedListElement<T>();
                 iter = first;
-                while (iter != null) { 
+                while (iter != null)
+                {
                     if (iter.Value.Equals(el))
                         return index;
                     iter = iter.next;
@@ -273,14 +314,15 @@ namespace Task_16
             }
 
 
-            public T Remove(int index) {
+            public T Remove(int index)
+            {
                 if (index >= size)
                     throw new IndexOutOfRangeException();
                 int currentIndex = 0;
                 if (index == 0)
                 {
                     T el = first.Value;
-                    
+
                     first = first.next;
                     first.prev = null;
                     size -= 1;
@@ -300,11 +342,13 @@ namespace Task_16
 
                 LinkedListElement<T> iter = new LinkedListElement<T>();
                 iter = first;
-                while (currentIndex != index) {
+                while (currentIndex != index)
+                {
                     iter = iter.next;
                     currentIndex++;
                 }
-                if (currentIndex  == index) {
+                if (currentIndex == index)
+                {
                     iter.prev.next = iter.next;
                     iter.next.prev = iter.prev;
                     size -= 1;
@@ -315,7 +359,8 @@ namespace Task_16
             }
 
 
-            public void Set(int index, T e) {
+            public void Set(int index, T e)
+            {
                 if (index >= size)
                     throw new IndexOutOfRangeException();
                 if (index == 0)
@@ -323,14 +368,16 @@ namespace Task_16
                     first.Value = e;
                     return;
                 }
-                if (index == size - 1) {
+                if (index == size - 1)
+                {
                     last.Value = e;
                     return;
                 }
                 int id = 0;
                 LinkedListElement<T> iter = new LinkedListElement<T>();
                 iter = first;
-                while (id != index) {
+                while (id != index)
+                {
                     iter = iter.next;
                     id++;
                 }
@@ -338,19 +385,22 @@ namespace Task_16
             }
 
 
-            public T[] SubList(int fromindex, int toindex) {
+            public T[] SubList(int fromindex, int toindex)
+            {
                 if (fromindex > toindex || fromindex < 0 || toindex >= size)
                     throw new IndexOutOfRangeException();
                 T[] RetArray = new T[toindex - fromindex + 1];
                 int currentIndex = 0;
                 LinkedListElement<T> iter = new LinkedListElement<T>();
                 iter = first;
-                while (currentIndex != fromindex) {
+                while (currentIndex != fromindex)
+                {
                     iter = iter.next;
                     currentIndex++;
                 }
                 int retIndex = 0;
-                while (currentIndex <= toindex) {
+                while (currentIndex <= toindex)
+                {
                     RetArray[retIndex] = iter.Value;
                     retIndex++;
                     currentIndex++;
@@ -360,7 +410,8 @@ namespace Task_16
             }
 
 
-            public T Element() {
+            public T Element()
+            {
                 if (first == null)
                     throw new IndexOutOfRangeException();
                 return first.Value;
@@ -369,32 +420,37 @@ namespace Task_16
 
 
 
-            public void Print() {
+            public void Print()
+            {
                 LinkedListElement<T>? iterator = first;
                 while (iterator != null)
                 {
                     Console.WriteLine($"{iterator.Value}");
                     iterator = iterator.next;
-                
+
                 }
             }
 
 
-            public T Peek() {
+            public T Peek()
+            {
                 if (first == null)
                     return default(T);
                 return first.Value;
             }
 
 
-            public void AddFirst(T el) {
+            public void AddFirst(T el)
+            {
                 Add(0, el);
             }
 
-            public void AddLast(T el) {
+            public void AddLast(T el)
+            {
                 Add(size - 1, el);
             }
-            public T Pool() { 
+            public T Pool()
+            {
                 if (first == null)
                     throw new IndexOutOfRangeException();
                 T el = first.Value;
@@ -404,11 +460,12 @@ namespace Task_16
                 return el;
             }
 
-            public T GetFirst() {
+            public T GetFirst()
+            {
                 if (first == null)
                     throw new IndexOutOfRangeException();
                 return first.Value;
-            
+
             }
 
 
@@ -420,7 +477,8 @@ namespace Task_16
 
             }
 
-            public bool OfferFirst(T obj) {
+            public bool OfferFirst(T obj)
+            {
 
                 LinkedListElement<T>? iterator = new LinkedListElement<T>();
                 iterator.Value = obj;
@@ -445,12 +503,14 @@ namespace Task_16
             }
 
 
-            public void Push(T obj) {
+            public void Push(T obj)
+            {
                 AddFirst(obj);
             }
 
 
-            public T PeekFirst() {
+            public T PeekFirst()
+            {
                 if (size == 0)
                     return default(T);
                 return first.Value;
@@ -466,7 +526,8 @@ namespace Task_16
             }
 
 
-            public T PollFirst() {
+            public T PollFirst()
+            {
                 if (size == 1)
                 {
                     first = null;
@@ -500,7 +561,8 @@ namespace Task_16
                 return el;
             }
 
-            public T Pop() {
+            public T Pop()
+            {
                 if (size == 1)
                 {
                     first = null;
@@ -517,7 +579,8 @@ namespace Task_16
             }
 
 
-            public T RemoveLast() {
+            public T RemoveLast()
+            {
                 T el = last.Value;
                 last = last.prev;
                 last.next = null; size--;
@@ -527,7 +590,8 @@ namespace Task_16
 
             public T RemoveFirst()
             {
-                if (size == 1) {
+                if (size == 1)
+                {
                     first = null;
                     size = 0;
                 }
@@ -538,7 +602,8 @@ namespace Task_16
             }
 
 
-            public bool RemoveLastOccurence(object obj) {
+            public bool RemoveLastOccurence(object obj)
+            {
                 T el = (T)obj;
                 if (size == 1 && first.Value.Equals(el))
                 {
@@ -546,7 +611,8 @@ namespace Task_16
                     size--;
                     return true;
                 }
-                if (last.Value.Equals(el)) {
+                if (last.Value.Equals(el))
+                {
                     last = last.prev;
                     last.next = null;
                     size--;
@@ -554,15 +620,18 @@ namespace Task_16
                 }
 
                 LinkedListElement<T>? iterator = last;
-                while (iterator != null) {
-                    if (iterator.Value.Equals(el)) {
+                while (iterator != null)
+                {
+                    if (iterator.Value.Equals(el))
+                    {
                         if (iterator != first)
                         {
                             iterator.prev.next = iterator.next;
                             iterator.next.prev = iterator.prev;
 
                         }
-                        else {
+                        else
+                        {
                             first = first.next;
                             first.prev = null;
                         }
@@ -570,17 +639,20 @@ namespace Task_16
                         return true;
                     }
                     iterator = iterator.prev;
-                
+
                 }
                 return false;
             }
 
 
-            public bool RemoveFirstOccurence(object obj) {
-                if (size == 1 && first.Value.Equals((T)obj)) {
-                    size--;return true;
+            public bool RemoveFirstOccurence(object obj)
+            {
+                if (size == 1 && first.Value.Equals((T)obj))
+                {
+                    size--; return true;
                 }
-                if (first.Value.Equals(obj)) {
+                if (first.Value.Equals(obj))
+                {
                     first = first.next;
                     first.prev = null;
                     return true;
@@ -614,28 +686,190 @@ namespace Task_16
 
             }
 
-            class LinkedListElement<T> {
+            class LinkedListElement<T>
+            {
                 public LinkedListElement<T>? next = null;
                 public LinkedListElement<T>? prev = null;
                 public T Value;
+            }
+
+
+            public MyIterator<T> Iterator() => new MyItr(this);
+
+            public AnotherMyIterator<T> ListIterator() => new MyItr(this);
+            public MyItr IndexIterator(int index) => new MyItr(this, index);
+
+            public class MyItr : AnotherMyIterator<T>
+            {
+                T retElement;
+                int index = 0;
+                LinkedListElement<T> element = null;
+                MyLinkedList<T> Copy;
+                MyLinkedList<T> nil;
+                public T Current
+                {
+                    get
+                    {
+
+                        return retElement;
+
+
+
+
+                    }
+
+
+                }
+                internal MyItr(MyLinkedList<T> Copy, int index = 0)
+                {
+                    this.Copy = Copy;
+                    this.index = index;
+                    if (index != 0)
+                    {
+                        element = Copy.first;
+                        for (int i = 0; i < index; i++)
+                        {
+                            element = element.next;
+
+                        }
+                    }
+
+                }
+
+
+
+                public void Add(T element)
+                {
+                    LinkedListElement<T> newEl = new LinkedListElement<T>();
+                    newEl.Value = element;
+                    LinkedListElement<T> NextEl = this.element.next;
+                    this.element.next = newEl;
+                    NextEl.prev = newEl;
+                    newEl.next = NextEl;
+                    newEl.prev = this.element;
+                    Copy.size++;
+
+                }
+
+                public bool HasNext()
+                {
+                    if (element == null && index == 0 && Copy.size > 0)
+                        return true;
+                    if (element == null && index == 0 && Copy.size == 0)
+                        return false;
+                    if (element.next == null)
+                        return false;
+                    return true;
+                }
+
+                public bool HasPrevious()
+                {
+                    if (element != null && element.prev == null)
+                        return false;
+                    return true;
+
+                }
+
+                public T Next()
+                {
+                    if (element == null && Copy.size > 0)
+                    {
+                        element = Copy.first;
+                        retElement = element.Value;
+                        return element.Value;
+
+                    }
+
+                    element = element.next;
+                    retElement = element.Value;
+                    index++;
+                    if (element == null)
+                        return Current;
+                    return element.Value;
+                }
+
+                public int NextIndex()
+                {
+                    return index + 1;
+                }
+
+                public T Previous()
+                {
+                    if (element.prev != null)
+                        element = element.prev;
+                    index--;
+                    return element.Value;
+                    throw new NotImplementedException();
+                }
+
+                public int PreviousIndex()
+                {
+                    return index - 1;
+                    throw new NotImplementedException();
+                }
+
+                public void Remove()
+                {
+                    if (element == null)
+                        return;
+                    LinkedListElement<T> NextEl = element.next;
+                    LinkedListElement<T> PrevEl = element.prev;
+                    if (NextEl != null && PrevEl != null)
+                    {
+                        NextEl.prev = PrevEl;
+                        PrevEl.next = NextEl;
+
+                    }
+                    else if (NextEl == null && PrevEl != null)
+                        PrevEl.next = null;
+
+                    else if (NextEl != null && PrevEl == null)
+                        NextEl.prev = null;
+
+                    else if (NextEl == null && PrevEl == null)
+                    {
+                        retElement = element.Value;
+                        element = null;
+
+
+                    }
+                    Copy.size--;
+                    if (index != 0)
+                        index--;
+                }
+
+                public void Set(T element)
+                {
+                    this.element.Value = element;
+
+
+                }
             }
         }
 
 
         static void Main(string[] args)
         {
-            int[] a = { 1, 2, 5, 2};
-            int[] b = { 3, 4, 5 };
-            int[] c = {1};
+            int[] a = { 1, 2, 5, 2, 3, 4, 5 };
+            MyLinkedList<int> lst = new MyLinkedList<int>();
+            lst.Add(5);
+            MyLinkedList<int> list = new MyLinkedList<int>(lst);
+            var iter = list.Iterator();
+            while (iter.HasNext())
+            {
+                iter.Next();
+                
 
-            MyLinkedList<int> list = new MyLinkedList<int>(a);
-            
-            list.AddAll(b);
-            list.Print();
-            Console.WriteLine("");
-            list.OfferFirst(5);
-            list.Print();
-            
+                Console.WriteLine(iter.Current.ToString());
+            }
+            var iter2 = list.Iterator();
+            while (iter2.HasNext())
+            {
+                iter2.Next();
+
+
+                Console.WriteLine(iter2.Current.ToString());
+            }
             //Console.WriteLine(list.ContainsAll(c));
             //           Console.WriteLine(list.Get(2));
         }

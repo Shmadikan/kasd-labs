@@ -49,16 +49,20 @@ namespace ConsoleApp2
         }
 
 
-        public void AddAll(T[] a) {
-            for (int i = 0; i < a.Length; i++)
-                this.Add(a[i]);
+        public void AddAll(MyCollection<T> a) {
+            var iter = a.Iterator();
+            while (iter.HasNext())
+                Add(iter.Next());
+            
 
         }
 
-        public void AddAll(int index, T[] a)
+        public void AddAll(int index, MyCollection<T> a)
         {
-            for (int i = 0; i < a.Length; i++)
-                this.Add(index, a[i]);
+            var iter = a.Iterator();
+            while (iter.HasNext())
+                Add(index,iter.Next());
+            
 
         }
 
@@ -82,15 +86,18 @@ namespace ConsoleApp2
             return false;
         }
 
-        public bool ContainsAll(T[] a)
+        public bool ContainsAll(MyCollection<T> a)
         {
             /// Метод, проверяющий наличие всех элементов
             /// Из передаваемого массива в динамическом.
 
 
-
-            foreach (T e in a)
+            var iter = a.Iterator();
+            while (iter.HasNext())
             {
+                T e = iter.Next();
+
+
                 bool flag = false;
                 foreach (T t in elementData)
                     if (t.Equals(e) == true)
@@ -128,14 +135,18 @@ namespace ConsoleApp2
                     }
         }
 
-        public void RemoveAll(T[] a)
+        public void RemoveAll(MyCollection<T> a)
         {
             /// Метод, удаляющий все элементы из динамического массива,
             /// При условии, что этот элемент есть в передаваемом массиве.
 
             if (elementCount > 0)
             {
-                foreach (T o in a)
+                var iter = a.Iterator();
+                while (iter.HasNext())
+                {
+                    T o = iter.Next();
+
                     for (int i = 0; i < elementData.Length; i++)
                     {
                         if (elementData[i].Equals(o))
@@ -153,6 +164,7 @@ namespace ConsoleApp2
 
                         }
                     }
+                }
             }
 
 
@@ -163,7 +175,7 @@ namespace ConsoleApp2
         }
 
 
-        public void RetainAll(T[] a)
+        public void RetainAll(MyCollection<T> a)
         {
             /// Метод, который оставляет в дин. массиве элементы из а.
 
@@ -203,9 +215,11 @@ namespace ConsoleApp2
                 /// Вспомогательный метод, для проверки наличия элемента.
 
                 bool flag = false;
-                for (int i = 0; i < a.Length; i++)
-                    if (a[i].Equals(el))
+                var iter = a.Iterator();
+                while (iter.HasNext())
+                    if (iter.Next().Equals(el))
                         flag = true;
+                
                 return flag;
 
             }
@@ -445,19 +459,128 @@ namespace ConsoleApp2
         }
 
 
-        public void Print()
-        {
-            /// Отладочный метод для просмотра элементов массива.
+        public MyIterator<T> Iterator() => new MyItr(this);
 
-            if (elementData != null)
+        public AnotherMyIterator<T> ListIterator() => new MyItr(this);
+        public MyItr IndexIterator(int index) => new MyItr(this, index);
+        public class MyItr : AnotherMyIterator<T>
+        {
+
+            MyVector<T> copy;
+            T currentElement;
+            int index = -1;
+            bool delete = false;
+
+
+            public T Current { get {
+                    if (index == -1 && !delete)
+                        return default(T);
+                    return currentElement;
+                } 
+            }
+            internal MyItr(MyVector<T> Orig, int index = -1) {
+
+                copy = Orig;
+                this.index = index;
+            }
+
+
+            public void Add(T element)
             {
-                for (int i = 0; i < elementCount; i++)
-                    Console.Write($"{elementData[i]} ");
+                if (copy.Size() + 1 == copy.elementCount)
+                    copy.ReSize();
+                if (index + 1 == copy.Size())
+                {
+                    copy.elementData[++index] = element;
+                    return;
+                }
+                T rel = copy.elementData[index + 1];
+                copy.elementData[index + 1] = rel;
+                for (int i = index + 2; i < copy.Size(); i++) {
+                    T el = copy.elementData[i];
+                    copy.elementData[i] = rel;
+                    rel = el;
+                }
+
+            }
+
+            public bool HasNext()
+            {
+                if (index + 1 == copy.Size())
+                {
+                    currentElement = default(T);
+                    return false;
+                }
+                return true;
+            }
+
+            public bool HasPrevious()
+            {
+                if (index > 0)
+                    return true;
+                return false;
+                
+            }
+
+            public T Next()
+            {
+                currentElement = copy.elementData[++index];
+                return currentElement;
+            }
+
+            public int NextIndex()
+            {
+                return index + 1;
+                
+            }
+
+            public T Previous()
+            {
+                if (index > 0 && index != -1) { 
+                    return currentElement = copy.elementData[--index];
+                
+                }
+                throw new Exception();    
+            }
+
+            public int PreviousIndex()
+            {
+                return index - 1;
+            }
+
+            public void Remove()
+            {
+                if (copy.Contains(currentElement))
+                {
+                    copy.Remove(currentElement);
+                    index--;
+                    delete = true;
+                }
+            }
+
+            public void Set(T element)
+            {
+                copy.elementData[index] = element;
             }
         }
+
+
+        
+        
     }
 
-
+    internal class Program { 
+    
+        static void Main(string[] args)
+        {
+            int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            MyVector<int> vec = new MyVector<int>(array);
+            var itr = vec.Iterator();
+            
+        }
+    
+    
+    }
 
 
 

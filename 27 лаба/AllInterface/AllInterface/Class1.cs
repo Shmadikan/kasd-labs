@@ -1,27 +1,52 @@
 ﻿using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace AllInterface
 {
+    public class MyCollectionException : Exception {
+
+        public MyCollectionException(string message)
+            :base(message) { }
+
+        public void Ds() { }
+    
+    
+    
+    
+    
+    }
+    public class IndexException : MyCollectionException
+    {
+        public IndexException(string message, int val) : base(message)
+        {
+        }
+    }
+
+    
+
     public interface MyCollection<T> where T: IComparable
     {
         void Add(T item);
         
         void Clear();
         bool Contains(object o);
-        bool ContainsAll(T[] a);
+        bool ContainsAll(MyCollection<T> a);
         bool IsEmpty();
         void Remove(object o);
-        void RemoveAll(T[] a);
-        void RetainAll(T[] a);
+        void RemoveAll(MyCollection<T> a);
+        void RetainAll(MyCollection<T> a);
         int Size();
         T[] ToArray();
         T[] ToArray(T[] a);
+
+        MyIterator<T> Iterator();
+        AnotherMyIterator<T>? ListIterator();
     }
 
 
     public interface MyList<T> : MyCollection<T> where T:IComparable {
         void Add(int index, T e);
-        void AddAll(int index, T[] e);
+        void AddAll(int index, MyCollection<T> e);
 
         T Get(int index);
         int IndexOf(object o);
@@ -155,14 +180,13 @@ namespace AllInterface
     }
 
 
-    public interface AnotherMyIterator<T> {
-        bool HasNext();
-        void Next();
+    public interface AnotherMyIterator<T>: MyIterator<T> {
+        
         bool HasPrevious();
-        void Previous();
+        T Previous();
         int NextIndex();
         int PreviousIndex();
-        void Remove();
+        
         void Set(T element);
 
         void Add(T element);

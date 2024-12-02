@@ -12,3 +12,21 @@ C:\Users\user\Desktop\kasd-labs-Task-16\task-16\Task-16\obj\Debug\net6.0\refint\
 C:\Users\user\Desktop\kasd-labs-Task-16\task-16\Task-16\obj\Debug\net6.0\Task-16.pdb
 C:\Users\user\Desktop\kasd-labs-Task-16\task-16\Task-16\obj\Debug\net6.0\Task-16.genruntimeconfig.cache
 C:\Users\user\Desktop\kasd-labs-Task-16\task-16\Task-16\obj\Debug\net6.0\ref\Task-16.dll
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\Task-16.exe
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\Task-16.deps.json
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\Task-16.runtimeconfig.json
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\Task-16.dll
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\Task-16.pdb
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\AllInterface.dll
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\bin\Debug\net6.0\AllInterface.pdb
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.AssemblyInfo.cs
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.csproj.CopyComplete
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.dll
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\refint\Task-16.dll
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.pdb
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\Task-16.genruntimeconfig.cache
+C:\Users\user\Desktop\27 лаба\task-16 int\Task-16\obj\Debug\net6.0\ref\Task-16.dll
