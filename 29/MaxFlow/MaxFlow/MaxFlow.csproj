@@ -7,4 +7,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="AllInterface">
+      <HintPath>..\VectorWithInter\ConsoleApp2\bin\Debug\net6.0\AllInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsoleApp2">
+      <HintPath>..\VectorWithInter\ConsoleApp2\bin\Debug\net6.0\ConsoleApp2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "o40RrfJefvgMVrCzehi+sZVuDfees51XU+t51nNAO2a7hQvXdhbXrYK44wk5vp4+17M9h0hsp5XTU907bNYmHA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\29\\WinFormsApp2\\WinFormsApp2\\WinFormsApp2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\automaticgraphlayout\\1.1.12\\automaticgraphlayout.1.1.12.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\automaticgraphlayout.drawing\\1.1.12\\automaticgraphlayout.drawing.1.1.12.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl\\1.1.6\\microsoft.msagl.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.drawing\\1.1.6\\microsoft.msagl.drawing.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.graphviewergdi\\1.1.7\\microsoft.msagl.graphviewergdi.1.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jzm+qTFapYMCQTo+2qiaPY9wWNXkl/80EYAgMQKi+8mwIssBNpRc8bxUqmPSm3V6xBESTPsOta85d7K2eoidww==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\29\\VisualIZO\\VisualIZO\\VisualIZO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl\\1.1.6\\microsoft.msagl.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.drawing\\1.1.6\\microsoft.msagl.drawing.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.graphviewergdi\\1.1.7\\microsoft.msagl.graphviewergdi.1.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}

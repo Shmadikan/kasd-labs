@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zr9SNNb/6b4wYiDs5BhAaQxveXwEzKYgiOUWmW3sjTXfv4Rvm5/goFA1I7vWeTd8VBaR80jl88mGi4QA42AF2Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\user\\Desktop\\29\\WinFormsApp1\\WinFormsApp1\\WinFormsApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl\\1.1.6\\microsoft.msagl.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.drawing\\1.1.6\\microsoft.msagl.drawing.1.1.6.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.msagl.graphviewergdi\\1.1.7\\microsoft.msagl.graphviewergdi.1.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}

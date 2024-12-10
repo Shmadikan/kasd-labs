@@ -44,7 +44,7 @@ namespace Taryan
                 
                 }
             }
-            DFS(0);
+            DFS(3);
             if (Acycle)
                 Console.WriteLine("Обнаружен цикл, топологическая сортировка невозможна.");
             else
